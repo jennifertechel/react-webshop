@@ -8,14 +8,20 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import Product from "./pages/Product";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="kassa" element={<Checkout />} />
+      <Route path="checkout" element={<Checkout />} />
+      <Route path="product" element={<Product />} />
+      <Route path="order" element={<OrderConfirmation />} />
+      <Route path="admin" element={<Admin />} />
     </Route>
   )
 );

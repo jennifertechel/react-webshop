@@ -1,18 +1,26 @@
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-const theme = extendTheme({});
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#FBF8F1",
+    },
+  },
+});
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <div>
-        <header></header>
+      <Box bg="brand.100">
+        <Header />
         <main>
           <Outlet />
         </main>
-        <footer></footer>
-      </div>
+        <Footer />
+      </Box>
     </ChakraProvider>
   );
 }
