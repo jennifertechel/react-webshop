@@ -4,75 +4,66 @@ export interface Product {
   title: string;
   description: string;
   price: number;
+  height: string;
 }
 
 export interface CartItem extends Product {
   quantity: number;
 }
 
-/**
- * function that returns a unique Id, both numbers and letters
- */
-export const generateId = () => {
-  const newId = Math.floor(1 + Math.random() * 0x1000)
-    .toString(16)
-    .substring(1);
-  return newId;
-};
-
 export const products: Product[] = [
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=ell_1032228-02_Fm_M0013527&mw=1500&fmt=webp',
-    title: 'Jolly',
+    image: "/public/product-images/p-1.svg",
+    title: "Calude",
     description:
-      'Stool with comfortable, shaped seat. Made of solid wood, in the Toon Wood type. Height 61 cm. Seat 40x32 cm. Seat height: 61 cm Width at the bottom 47 cm. Mounted.',
-    price: 1599,
-    id: 'e1',
+      "Handmade ceramic vase. The vase is shaped like two hands carrying something and it radiates care. The dark one has a shiny, marbled glaze, the light one has a matte surface with texture. Both colors have a glazed interior. The vase is handmade, making each piece unique. Please note that ceramics may allow moisture to pass through.",
+    price: 300,
+    id: "a1",
+    height: "Height: 18 cm",
   },
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=ell_1595558-01_Fm_M0037129&mw=1500&fmt=webp',
-    title: 'Chardonne',
+    image: "/public/product-images/p-2.svg",
+    title: "Ralph",
     description:
-      'Armchair with pine and plywood frame with nozag suspension and foam filling. Brushed metal legs. Dimensions: Width 89 cm, height 77 cm, depth 83 cm. Seat height 43 cm, seat depth 62 cm, seat width 54 cm.',
-    price: 3919,
-    id: 'd2',
+      "Handmade decorative vase of ceramic. A sleek vase with an exciting shape and ribbed surface. The inside is also glazed. Some variation may occur as the vase is handmade. Ceramics may allow moisture to pass through.",
+    price: 500,
+    id: "b2",
+    height: "Height: 33 cm",
   },
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=hom_1663846-02_Fs&mw=1500&fmt=webp',
-    title: 'Xander',
+    image: "/public/product-images/p-3.svg",
+    title: "Peyton",
     description:
-      'Lounge armchair with upholstery in bouquet fabric and passpoalk edge along the top edge. Legs and frame in powder-coated metal. Foam filling. Easier installation.',
-    price: 2299,
-    id: 'c1',
+      "Handmade decorative vase of glazed ceramic. PEYTON has a flowing shape and, together with the beautiful glaze, resembles the corals of the sea. The inside is also glazed. The craftsmanship makes each vase unique. Please note that ceramics may allow moisture to pass through.",
+    price: 400,
+    id: "c3",
+    height: "Height: 21 cm",
   },
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=ell_1615855-02_Fm_M0044073&mw=1500&fmt=webp',
-    title: 'Magnolia',
+    image: "/public/product-images/p-4.svg",
+    title: "Algot",
     description:
-      'Rattan bedside table with shelf underneath. The top is reinforced with a plywood board under the rattan. Dimensions: Width 41 cm, height 71 cm, depth 31 cm. Leg height 22 cm. Height to the upper edge of the lower shelf 25 cm. Dimensions between the shelves 42.5 cm.',
-    price: 1299,
-    id: 'f4',
+      "Handmade decorative vase of glazed ceramic with a lively, beautifully bubbly glaze and irregular shape. The inside is also glazed. Some variation may occur as the vase is handmade. Ceramics may allow moisture to pass through.",
+    price: 500,
+    id: "d4",
+    height: "Height: 28,5 cm",
   },
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=ell_1503126-03_Fm_M0037108&mw=1500&fmt=webp',
-    title: 'Bella',
+    image: "/public/product-images/p-5.svg",
+    title: "Atticus",
     description:
-      'Upholstered headboard attached to the wall (two hooks on the back). Wooden frame (pine). Upholstery in velvet of polyester and filling of polyether. Width 95 cm. Height 61.5 cm. Depth 7.5 cm.',
-    price: 999,
-    id: 'e6',
+      "Handmade decorative vase of glazed ceramic. ATTICUS has a flowing shape and, together with the beautiful glaze, resembles the corals of the sea. The inside is also glazed. The craftsmanship makes each vase unique. Please note that ceramics may allow moisture to pass through.",
+    price: 300,
+    id: "e5",
+    height: "Height: 21 cm",
   },
   {
-    image:
-      'https://assets.ellosgroup.com/i/ellos/b?$eg$&$em$&$ep$&$ed$&n=ell_1664039-01_Fm_M0059479&mw=1500&fmt=webp',
-    title: 'Essentials',
+    image: "/public/product-images/p-6.svg",
+    title: "Jordan",
     description:
-      'Side table / cabinet in solid mango wood with wax-treated surface. Two doors with wooden handles and soft closing. The cabinet is divided inside and has a fixed shelf. Dimensions between shelves approx. 27 cm. Clear height under furniture 14 cm. Delivered assembled.',
-    price: 5499,
-    id: 'a3',
+      "Handmade ceramic vase that also becomes a decorative object wherever it is placed. The vase is handmade in a beautiful shape and then glazed with an impactful splatter pattern. The fine craftsmanship makes each piece unique. Please note that ceramics may allow moisture to pass through.",
+    price: 600,
+    id: "f6",
+    height: "Height: 32 cm",
   },
 ];
