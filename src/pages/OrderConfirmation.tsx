@@ -1,4 +1,4 @@
-import { Box, Center } from "@chakra-ui/react";
+import { Box, Center, Stack } from "@chakra-ui/react";
 
 function OrderConfirmation() {
   return (
@@ -12,18 +12,18 @@ function OrderConfirmation() {
         <h1>Tack för din beställning.</h1>
       </Box>
 
-      <Box
+      <Stack
         display="flex"
-        justifyContent="space-evenly"
+        justifyContent="space-between"
         alignItems="center"
-        padding={{ base: "4", md: "8" }}
+        padding={{ base: "10", md: "10" }}
         flexDirection="column"
       >
         <h2>Produkt(er):</h2>
         <h2>Antal:</h2>
         <h2>Pris:</h2>
         <h2>Ordernummer:</h2>
-      </Box>
+      </Stack>
     </Center>
   );
 }
