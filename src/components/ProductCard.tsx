@@ -24,19 +24,19 @@ function ProductCard() {
       >
         <Image
           objectFit="cover"
-          maxW={{ base: "100%", sm: "200px" }}
+          maxW={{ base: "100%", sm: "800px" }}
           src={product.image}
-          alt="Caffe Latte"
+          alt={product.title}
         />
 
         <Stack>
           <CardBody>
-            <Heading size="md">The perfect latte</Heading>
+            <Heading size="md">{product.title}</Heading>
+            <Text>Höjd:{product.height}</Text>
 
-            <Text py="2">
-              Caffè latte is a coffee beverage of Italian origin made with
-              espresso and steamed milk.
-            </Text>
+            <Text py="2">{product.description}</Text>
+
+            <Text> {product.price}</Text>
           </CardBody>
 
           <CardFooter>
@@ -48,7 +48,7 @@ function ProductCard() {
               borderRadius="none"
               borderWidth="2px"
             >
-              Buy Latte
+              Lägg till i varukorgen
             </Button>
           </CardFooter>
         </Stack>
