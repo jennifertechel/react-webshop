@@ -30,12 +30,13 @@ function ProductCard() {
             objectFit="cover"
             width="100%"
             maxW={{ base: "100%", sm: "100%" }}
+            minW="200px"
             src={product.image}
             alt={product.title}
           />
         </Flex>
-        <Flex flex={1}>
-          <Stack maxW="450px" spacing="10px">
+        <Flex flex={1} alignItems="center" justifyContent="space-between">
+          <Stack maxW="450px" spacing="5px">
             <CardBody>
               <Heading
                 data-cy="product-title"
@@ -63,7 +64,7 @@ function ProductCard() {
               </Text>
             </CardBody>
 
-            <CardFooter>
+            <CardFooter flexDirection={{ base: "column", md: "row" }}>
               <Button
                 data-cy="product-buy-button"
                 variant="outline"
@@ -73,8 +74,9 @@ function ProductCard() {
                 borderRadius="none"
                 borderWidth="2px"
                 mr="2"
-                height="50px"
+                height="45px"
                 _hover={{ bg: "yellow.400" }}
+                m={{ base: "10px", sm: "2px" }}
               >
                 Lägg till i varukorgen
               </Button>
@@ -86,6 +88,8 @@ function ProductCard() {
                 alignItems="center"
                 justifyContent="center"
                 width="140px"
+                height="45px"
+                m={{ base: "10px", sm: "2px" }}
               >
                 <Button
                   bg="transparent"
@@ -94,6 +98,7 @@ function ProductCard() {
                   borderWidth="2px"
                   borderRadius="none"
                   _hover={{ bg: "yellow.400" }}
+                  height="45px"
                 >
                   -
                 </Button>
@@ -104,6 +109,7 @@ function ProductCard() {
                   borderWidth="2px"
                   borderRadius="none"
                   _hover={{ bg: "yellow.400" }}
+                  height="45px"
                 >
                   +
                 </Button>
