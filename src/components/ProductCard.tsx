@@ -13,7 +13,7 @@ import {
 import { products } from "../../data";
 
 function ProductCard() {
-  const product = products[0];
+  const product = products[4];
   return (
     <Flex justifyContent="center" alignItems="center">
       <Card
@@ -37,22 +37,35 @@ function ProductCard() {
         <Flex flex={1}>
           <Stack maxW="450px" spacing="10px">
             <CardBody>
-              <Heading margin="3px 10px 10px 10px" fontSize="xl">
+              <Heading
+                data-cy="product-title"
+                margin="3px 10px 10px 10px"
+                fontSize="xl"
+              >
                 {product.title}{" "}
               </Heading>
               <Text margin="3px 10px 10px 10px">Höjd:{product.height}</Text>
 
-              <Text margin="3px 10px 10px 10px" py="2">
+              <Text
+                data-cy="product-description"
+                margin="3px 10px 10px 10px"
+                py="2"
+              >
                 {product.description}
               </Text>
 
-              <Text fontSize="xl" margin="3px 10px 10px 10px">
+              <Text
+                data-cy="product-price"
+                fontSize="xl"
+                margin="3px 10px 10px 10px"
+              >
                 {product.price} SEK
               </Text>
             </CardBody>
 
             <CardFooter>
               <Button
+                data-cy="product-buy-button"
                 variant="outline"
                 colorScheme="yellow"
                 borderColor="yellow.400"
