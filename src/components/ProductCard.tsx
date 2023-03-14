@@ -11,6 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { products } from "../../data";
+import { Currency } from "./Currency";
 
 function ProductCard() {
   const product = products[4];
@@ -60,7 +61,7 @@ function ProductCard() {
                 fontSize="xl"
                 margin="3px 10px 10px 10px"
               >
-                {product.price} SEK
+                {Currency(product.price)}
               </Text>
             </CardBody>
 
