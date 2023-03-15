@@ -16,7 +16,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <Box bg="brand.100">
         <Header />
-        <main>
+        <main style={{ paddingTop: "5.8rem" }}>
           <Outlet />
         </main>
         <Footer />
