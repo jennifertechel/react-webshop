@@ -13,7 +13,7 @@ import { products } from "../../data";
 import { Currency } from "../components/Currency";
 
 function Admin() {
-  const product = products[4];
+  const product = products[2];
   return (
     <Stack direction={{ base: "column", md: "row" }} spacing="4">
       <Card
