@@ -10,10 +10,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { products } from "../../data";
+import { Product } from "../../data";
 
-function ProductCard() {
-  const product = products[4];
+function ProductCard({ product }: { product: Product }) {
   return (
     <Flex justifyContent="center" alignItems="center">
       <Card
