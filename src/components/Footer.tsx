@@ -8,21 +8,26 @@ import {
   Link,
   Spacer,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
 function Footer() {
+  const flexDirection = useBreakpointValue({ base: "column", md: "row" });
+
   return (
     <Flex
-      as="footer"
-      borderTop="1px"
-      borderColor="blackAlpha.200"
-      width="100vw"
+      as='footer'
+      borderTop='1px'
+      borderColor='blackAlpha.200'
+      width='100vw'
       py={6}
       px={20}
+      direction={{ base: "column", md: "row" }}
+      textAlign={{ base: "center", md: "left" }}
     >
-      <Flex direction="column">
-        <Heading size="md" pb={2}>
+      <Flex direction='column'>
+        <Heading size='md' pb={2}>
           By Groove
         </Heading>
         <Link>Köpvillkor</Link>
@@ -31,12 +36,17 @@ function Footer() {
       </Flex>
       <Spacer />
       <Center>
-        <Image src="logo.svg" maxWidth="150px" maxHeight="100%" />
+        <Image
+          py={{ base: 4, md: 0 }}
+          src='logo.svg'
+          maxWidth='150px'
+          maxHeight='100%'
+        />
       </Center>
       <Spacer />
 
-      <Flex direction="column">
-        <Text fontSize="lg" pb={2}>
+      <Flex direction='column'>
+        <Text fontSize='lg' pb={2}>
           Följ oss!
         </Text>
         <Box>
