@@ -33,12 +33,12 @@ function Admin() {
             <Stack divider={<StackDivider />}>
               <Heading size="md">{product.title}</Heading>
             </Stack>
-            <p>{product.description}</p>
           </CardBody>
 
           <CardFooter>
             <Flex justifyContent="flex-end">
               <Stack direction="column" spacing="2">
+                <p>{product.description}</p>
                 <Button bg="#e1dacf" color="black" variant="solid">
                   Edit
                 </Button>
