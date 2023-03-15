@@ -1,4 +1,9 @@
+@font-face {
+  font-family: "adamina";
+  src: url(/public/fonts/Adamina-Regular.ttf);
+}
+
 body {
   margin: 0;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-family: "adamina";
 }
