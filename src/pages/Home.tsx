@@ -1,7 +1,6 @@
 import {
   Box,
   Center,
-  Container,
   Grid,
   GridItem,
   Heading,
@@ -9,7 +8,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { products } from "../../data";
-import CardHome from "../components/OverviewCard";
+import OverviewCard from "../components/OverviewCard";
 
 function Home() {
   return (
@@ -23,12 +22,16 @@ function Home() {
           transform='translate(-50%, -25%)'
         >
           <Text>Handmade ceramic vases</Text>
-          <Heading>Made with love and stuff</Heading>
+          <Heading>
+            Some fun slogan
+            <br />
+            not involving groovy
+          </Heading>
         </Box>
       </Box>
       <Box py={6}>
         <Center>
-          <Heading>Alla Produkter</Heading>
+          <Text fontSize='2xl'>NYHETER</Text>
         </Center>
       </Box>
       <Center>
@@ -43,9 +46,11 @@ function Home() {
           py={8}
         >
           {products.map((product) => (
-            <GridItem>
-              <CardHome data-cy='product' key={product.id} product={product} />
-            </GridItem>
+            <OverviewCard
+              data-cy='product'
+              key={product.id}
+              product={product}
+            />
           ))}
         </Grid>
       </Center>

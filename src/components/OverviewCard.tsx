@@ -1,18 +1,36 @@
 import { Card, CardBody, Flex, Image, Text } from "@chakra-ui/react";
 import { Product } from "../../data";
+import { Link } from "react-router-dom";
 
-function CardHome({ product }: { product: Product }) {
+function OverviewCard({ product }: { product: Product }) {
   return (
-    <Card maxW='xs' align='center' bg='brand.100'>
-      <CardBody>
-        <Image src={product.image} alt={product.title} />
-        <Flex justifyContent='space-between' pt={3}>
-          <Text data-cy='product-title'>{product.title} vas</Text>
-          <Text data-cy='product-price'>{product.price} SEK</Text>
-        </Flex>
-      </CardBody>
-    </Card>
+    <Link to={"/product/" + product.id} key={product.id}>
+      <Card
+        data-cy='product'
+        variant='unstyled'
+        maxW='xs'
+        align='center'
+        bg='brand.100'
+        p={4}
+        _hover={{
+          boxShadow: "2xl",
+        }}
+      >
+        <CardBody>
+          <Image src={product.image} alt={product.title} />
+          <Flex justifyContent='space-between' pt={3}>
+            <Text>{product.title} vas</Text>
+            <Text>
+              {product.price}
+              <Text as='span' fontSize='xs'>
+                &nbsp;SEK
+              </Text>
+            </Text>
+          </Flex>
+        </CardBody>
+      </Card>
+    </Link>
   );
 }
 
-export default CardHome;
+export default OverviewCard;
