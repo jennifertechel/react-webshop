@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { products } from "../../data";
-import CardHome from "../components/Card";
+import CardHome from "../components/OverviewCard";
 
 function Home() {
   return (
@@ -44,7 +44,7 @@ function Home() {
         >
           {products.map((product) => (
             <GridItem>
-              <CardHome key={product.id} product={product} />
+              <CardHome data-cy='product' key={product.id} product={product} />
             </GridItem>
           ))}
         </Grid>
