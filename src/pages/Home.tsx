@@ -32,7 +32,16 @@ function Home() {
         </Center>
       </Box>
       <Center>
-        <Grid templateColumns='repeat(3, 1fr)' columnGap={24} rowGap={8} py={8}>
+        <Grid
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
+          columnGap={24}
+          rowGap={8}
+          py={8}
+        >
           {products.map((product) => (
             <GridItem>
               <CardHome key={product.id} product={product} />
