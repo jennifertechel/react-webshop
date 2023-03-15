@@ -1,5 +1,13 @@
+import Breadcrumbs from "../components/Breadcrumbs";
+import ProductCard from "../components/ProductCard";
+
 function Product() {
-  return <h1>This is a detailed product page</h1>;
+  return (
+    <div>
+      <Breadcrumbs />
+      <ProductCard />
+    </div>
+  );
 }
 
 export default Product;
