@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardBody,
@@ -42,7 +41,7 @@ function ProductCard({ product }: { product: Product }) {
                 margin="3px 10px 10px 10px"
                 fontSize="xl"
               >
-                {product.title}{" "}
+                {product.title}
               </Heading>
               <Text margin="3px 10px 10px 10px">Höjd:{product.height}</Text>
 
@@ -79,7 +78,7 @@ function ProductCard({ product }: { product: Product }) {
               >
                 Lägg till i varukorgen
               </Button>
-              <Box
+              {/* <Box
                 borderWidth="2px"
                 borderColor="yellow.400"
                 borderRadius="none"
@@ -112,7 +111,7 @@ function ProductCard({ product }: { product: Product }) {
                 >
                   +
                 </Button>
-              </Box>
+              </Box> */}
             </CardFooter>
           </Stack>
         </Flex>
