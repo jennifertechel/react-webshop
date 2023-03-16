@@ -1,12 +1,4 @@
-import {
-  Box,
-  Center,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { products } from "../../data";
 import OverviewCard from "../components/OverviewCard";
 
