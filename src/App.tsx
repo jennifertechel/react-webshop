@@ -1,5 +1,4 @@
 import { Box, ChakraProvider, extendTheme } from "@chakra-ui/react";
-import { Global } from "@emotion/react";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
