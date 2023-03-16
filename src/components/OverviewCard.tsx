@@ -1,6 +1,16 @@
-import { Card, CardBody, Flex, Image, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Flex,
+  Image,
+  Text,
+  Box,
+  Button,
+  Icon,
+} from "@chakra-ui/react";
 import { Product } from "../../data";
 import { Link } from "react-router-dom";
+import { IoMdAdd } from "react-icons/io";
 
 function OverviewCard({ product }: { product: Product }) {
   return (
@@ -19,13 +29,26 @@ function OverviewCard({ product }: { product: Product }) {
         <CardBody>
           <Image src={product.image} alt={product.title} />
           <Flex justifyContent='space-between' pt={3}>
-            <Text>{product.title} vas</Text>
-            <Text>
-              {product.price}
-              <Text as='span' fontSize='xs'>
-                &nbsp;SEK
+            <Box>
+              <Text>{product.title} vas</Text>
+              <Text>
+                {product.price}
+                <Text as='span' fontSize='xs'>
+                  &nbsp;SEK
+                </Text>
               </Text>
-            </Text>
+            </Box>
+            <Button
+              data-cy='product-buy-button'
+              variant='outline'
+              colorScheme='orange'
+              border='none'
+              color='black'
+              borderRadius='none'
+              _hover={{ bg: "orange.100" }}
+            >
+              <Icon boxSize={6} as={IoMdAdd} />
+            </Button>
           </Flex>
         </CardBody>
       </Card>

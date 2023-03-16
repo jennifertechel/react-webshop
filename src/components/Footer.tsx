@@ -13,8 +13,6 @@ import {
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
 function Footer() {
-  const flexDirection = useBreakpointValue({ base: "column", md: "row" });
-
   return (
     <Flex
       as='footer'
