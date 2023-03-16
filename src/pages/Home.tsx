@@ -1,32 +1,51 @@
 import { Box, Center, Grid, Heading, Image, Text } from "@chakra-ui/react";
 import { products } from "../../data";
-import CardHome from "../components/Card";
+import OverviewCard from "../components/OverviewCard";
 
 function Home() {
   return (
     <div>
-      <Box pos="relative">
-        <Image src="/public/hero-md.svg" />
+      <Box pos='relative'>
+        <Image src='/public/hero-md.svg' />
         <Box
-          position="absolute"
-          top="50%"
-          left="25%"
-          transform="translate(-50%, -25%)"
+          position='absolute'
+          top='50%'
+          left='25%'
+          transform='translate(-50%, -25%)'
         >
           <Text>Handmade ceramic vases</Text>
-          <Heading>Made with love and stuff</Heading>
+          <Heading>
+            Some fun slogan
+            <br />
+            not involving groovy
+          </Heading>
         </Box>
       </Box>
       <Box py={6}>
         <Center>
-          <Heading>Alla Produkter</Heading>
+          <Text fontSize='2xl'>NYHETER</Text>
         </Center>
       </Box>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6} py={8}>
-        {products.map((product) => (
-          <CardHome key={product.id} product={product} />
-        ))}
-      </Grid>
+      <Center>
+        <Grid
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
+          columnGap={24}
+          rowGap={8}
+          py={8}
+        >
+          {products.map((product) => (
+            <OverviewCard
+              data-cy='product'
+              key={product.id}
+              product={product}
+            />
+          ))}
+        </Grid>
+      </Center>
     </div>
   );
 }

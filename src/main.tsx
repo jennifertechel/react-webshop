@@ -12,16 +12,16 @@ import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import OrderConfirmation from "./pages/OrderConfirmation";
-import Product from "./pages/Product";
+import ProductPage from "./pages/Product";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path='/' element={<App />}>
       <Route index element={<Home />} />
-      <Route path="checkout" element={<Checkout />} />
-      <Route path="product" element={<Product />} />
-      <Route path="order" element={<OrderConfirmation />} />
-      <Route path="admin" element={<Admin />} />
+      <Route path='product/:id' element={<ProductPage />} />
+      <Route path='checkout' element={<Checkout />} />
+      <Route path='order' element={<OrderConfirmation />} />
+      <Route path='admin' element={<Admin />} />
     </Route>
   )
 );

@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardBody,
@@ -10,11 +9,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { products } from "../../data";
 import { Currency } from "./Currency";
 
-function ProductCard() {
-  const product = products[4];
+function ProductCard({ product }: { product: Product }) {
   return (
     <Flex justifyContent="center" alignItems="center">
       <Card
@@ -44,7 +41,7 @@ function ProductCard() {
                 margin="3px 10px 10px 10px"
                 fontSize="xl"
               >
-                {product.title}{" "}
+                {product.title}
               </Heading>
               <Text margin="3px 10px 10px 10px">Höjd:{product.height}</Text>
 
@@ -81,7 +78,7 @@ function ProductCard() {
               >
                 Lägg till i varukorgen
               </Button>
-              <Box
+              {/* <Box
                 borderWidth="2px"
                 borderColor="yellow.400"
                 borderRadius="none"
@@ -114,7 +111,7 @@ function ProductCard() {
                 >
                   +
                 </Button>
-              </Box>
+              </Box> */}
             </CardFooter>
           </Stack>
         </Flex>
