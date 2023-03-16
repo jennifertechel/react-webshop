@@ -9,6 +9,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { Product } from "../../data";
 import { Currency } from "./Currency";
 
 function ProductCard({ product }: { product: Product }) {

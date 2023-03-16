@@ -3,7 +3,7 @@ import { products } from "../../data";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ProductCard from "../components/ProductCard";
 
-function ProductPage() {
+export function ProductPage() {
   const params = useParams();
   const productVase = products.find((product) => product.id == params["id"]);
 
@@ -11,7 +11,7 @@ function ProductPage() {
 
   return (
     <div>
-      <Breadcrumbs />
+      <Breadcrumbs title={productVase.title} />
       <ProductCard product={productVase} />
     </div>
   );

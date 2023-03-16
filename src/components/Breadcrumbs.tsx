@@ -1,7 +1,7 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-function Breadcrumbs() {
+function Breadcrumbs({ title }: { title: string }) {
   return (
     <Breadcrumb marginLeft="20px">
       <BreadcrumbItem>
@@ -11,7 +11,7 @@ function Breadcrumbs() {
       </BreadcrumbItem>
 
       <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink href="#">Produkt</BreadcrumbLink>
+        <BreadcrumbLink href="#">{title}</BreadcrumbLink>
       </BreadcrumbItem>
     </Breadcrumb>
   );
