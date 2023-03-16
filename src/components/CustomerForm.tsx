@@ -60,9 +60,10 @@ function CustomerForm() {
                         borderColor="yellow.400"
                         >
                         <Stack m="30px" spacing={6}>
-                        <FormControl>
+                        <FormControl data-cy="customer-form">
                             <FormLabel>Namn:</FormLabel>
                             <Input
+                                data-cy="customer-name"
                                 bg="whiteAlpha.900" 
                                 size="md"
                                 type="text" 
@@ -78,6 +79,7 @@ function CustomerForm() {
                         <FormControl>
                             <FormLabel>Adress:</FormLabel>
                             <Input
+                                data-cy="customer-address"
                                 bg="whiteAlpha.900" 
                                 size="md" 
                                 type="text" 
@@ -93,6 +95,7 @@ function CustomerForm() {
                         <FormControl>
                             <FormLabel>Postnummer:</FormLabel>
                             <Input
+                                data-cy="customer-zipcode"
                                 bg="whiteAlpha.900" 
                                 size="md" 
                                 type="text" 
@@ -108,6 +111,7 @@ function CustomerForm() {
                         <FormControl>
                             <FormLabel>Stad:</FormLabel>
                             <Input
+                                data-cy="customer-city"
                                 bg="whiteAlpha.900" 
                                 size="md" 
                                 type="text" 
@@ -123,6 +127,7 @@ function CustomerForm() {
                         <FormControl>
                             <FormLabel>Email:</FormLabel>
                             <Input
+                                data-cy="customer-email"
                                 bg="whiteAlpha.900" 
                                 size="md" 
                                 type="text" 
@@ -138,6 +143,7 @@ function CustomerForm() {
                         <FormControl>
                             <FormLabel>Telefonnummer:</FormLabel>
                             <Input
+                                data-cy="customer-phone"
                                 bg="whiteAlpha.900" 
                                 size="md" 
                                 type="text" 
