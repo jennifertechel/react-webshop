@@ -1,3 +1,4 @@
+import CustomerForm from "../components/CustomerForm";
 import ShoppingCart from "../components/ShoppingCart";
 
 function Checkout() {
@@ -5,6 +6,7 @@ function Checkout() {
   return (
     <div>
       <ShoppingCart />
+      <CustomerForm />
     </div>
  )
 }

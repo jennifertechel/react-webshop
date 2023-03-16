@@ -7,12 +7,12 @@ function ShoppingCart() {
     return (
         <div style={{ paddingTop: "100px", paddingBottom: "100px" }}>
             <Center>
-                <Heading  as='h3' size='md' p={"6"}>Din varukorg!</Heading> 
+                <Heading  as='h3' size='md' p="4">Din varukorg!</Heading> 
             </Center>
 
             <Center>
       <Flex>
-        <Box bg="white" p="18px"  w="1200px" borderRadius='md'>
+        <Box bg="white" p="16px"  w="1200px" borderRadius='md'>
           
           <Flex justifyContent="space-between" pt="4px" pb="12px">
             <Flex alignItems="center" width="100px">
