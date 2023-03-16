@@ -1,5 +1,12 @@
+import ShoppingCart from "../components/ShoppingCart";
+
 function Checkout() {
-  return <h1>This is chart page</h1>;
+ 
+  return (
+    <div>
+      <ShoppingCart />
+    </div>
+ )
 }
 
 export default Checkout;
