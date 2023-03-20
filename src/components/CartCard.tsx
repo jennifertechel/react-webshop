@@ -14,8 +14,13 @@ import {
 } from "@chakra-ui/react";
 import { Product } from "../../data";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useCart } from "../context/cartContext";
 
 function CartCard({ product }: { product: Product }) {
+  const { removeFromCart } = useCart();
+  const handleRemoveFromCart = (item: Product) => {
+    removeFromCart(item.id);
+  };
   return (
     <Card
       direction={{ base: "column", sm: "row" }}
@@ -62,7 +67,7 @@ function CartCard({ product }: { product: Product }) {
           </Box>
           <Spacer />
           <Box pr={4}>
-            <Button bg='none'>
+            <Button bg='none' onClick={() => handleRemoveFromCart(product)}>
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text>
