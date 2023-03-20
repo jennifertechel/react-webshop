@@ -13,7 +13,7 @@ import { Product } from "../../data";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useCart } from "../context/cartContext";
 
-function CartCard({ product }: { product: Product }) {
+function CheckoutCard({ product }: { product: Product }) {
   const { removeFromCart } = useCart();
   const handleRemoveFromCart = (item: Product) => {
     removeFromCart(item.id);
@@ -97,4 +97,4 @@ function CartCard({ product }: { product: Product }) {
   );
 }
 
-export default CartCard;
+export default CheckoutCard;

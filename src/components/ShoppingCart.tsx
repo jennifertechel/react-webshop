@@ -1,5 +1,5 @@
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
-import CartCard from "./CheckoutCard";
+import CheckoutCard from "./CheckoutCard";
 import { useCart } from "../context/cartContext";
 import { useMemo } from "react";
 
@@ -22,7 +22,7 @@ function ShoppingCart() {
       <Box width='100%'>
         {cart.map((item) => (
           <Center>
-            <CartCard key={item.id} product={item} />
+            <CheckoutCard key={item.id} product={item} />
           </Center>
         ))}
       </Box>
