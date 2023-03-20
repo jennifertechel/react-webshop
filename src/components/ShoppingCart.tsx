@@ -25,13 +25,11 @@ function ShoppingCart() {
         </Heading>
       </Center>
 
-      <Flex flexDirection='row'>
-        <Center>
-          {cart.map((item) => (
-            <CartCard key={item.id} product={item} />
-          ))}
-        </Center>
-      </Flex>
+      <Center>
+        {cart.map((item) => (
+          <CartCard key={item.id} product={item} />
+        ))}
+      </Center>
 
       <Center>
         <Flex>

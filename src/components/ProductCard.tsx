@@ -8,6 +8,7 @@ import {
   Image,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { Product } from "../../data";
 import { Currency } from "./Currency";
@@ -15,9 +16,17 @@ import { useCart } from "../context/cartContext";
 
 function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
+  const toast = useToast();
 
   const handleAddToCart = (item: Product) => {
     addToCart(item);
+    toast({
+      // Call the useToast hook to show a toast notification
+      title: "Product added to cart",
+      status: "success",
+      duration: 1000,
+      isClosable: false,
+    });
   };
   return (
     <Flex justifyContent='center' alignItems='center'>
