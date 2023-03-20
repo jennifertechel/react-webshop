@@ -39,8 +39,9 @@ function Header() {
                 position='absolute'
                 top='-10px'
                 right='-6px'
-                colorScheme='red'
-                borderRadius='90%'
+                colorScheme='yellow'
+                fontSize='0.85rem'
+                borderRadius='10px'
               >
                 {totalQuantity}
               </Badge>
