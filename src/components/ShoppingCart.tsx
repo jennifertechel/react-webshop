@@ -10,15 +10,25 @@ import {
 } from "@chakra-ui/react";
 import { ImBin } from "react-icons/im";
 import { products } from "../../data";
+import CartCard from "./CartCard";
+import { useCart } from "../context/cartContext";
 
 function ShoppingCart() {
   const product = products[8];
+  const { cart } = useCart();
+
   return (
     <div style={{ paddingTop: "100px", paddingBottom: "100px" }}>
       <Center>
         <Heading as='h3' size='md' p='4'>
           Din varukorg!
         </Heading>
+      </Center>
+
+      <Center>
+        {cart.map((item) => (
+          <CartCard key={item.id} product={item} />
+        ))}
       </Center>
 
       <Center>
