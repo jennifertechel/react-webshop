@@ -6,7 +6,7 @@ import {
   Flex,
   Heading,
   Image,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { ImBin } from "react-icons/im";
 import { products } from "../../data";
