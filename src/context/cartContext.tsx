@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, PropsWithChildren } from "react";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 interface Product {
   id: string;
@@ -28,7 +29,7 @@ const CartContext = createContext<CartContextProps>({
 export const useCart = () => useContext(CartContext);
 
 export default function CartProvider(props: PropsWithChildren) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useLocalStorageState<CartItem[]>([], "cart");
 
   const addToCart = (item: Product) => {
     // Kolla om produkten redan finns i kundkorgen

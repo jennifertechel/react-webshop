@@ -4,7 +4,6 @@ import {
   Center,
   Divider,
   Flex,
-  Grid,
   Heading,
   Image,
   Text,
@@ -26,11 +25,13 @@ function ShoppingCart() {
         </Heading>
       </Center>
 
-      <Center>
-        {cart.map((item) => (
-          <CartCard key={item.id} product={item} />
-        ))}
-      </Center>
+      <Flex flexDirection='row'>
+        <Center>
+          {cart.map((item) => (
+            <CartCard key={item.id} product={item} />
+          ))}
+        </Center>
+      </Flex>
 
       <Center>
         <Flex>
