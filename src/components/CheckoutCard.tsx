@@ -58,18 +58,30 @@ function CartCard({ product }: { product: Product }) {
               p={0}
               m={0}
             >
-              <Button bg='none' borderRadius='none'>
+              <Button
+                bg='none'
+                borderRadius='none'
+                _hover={{ bg: "none", transform: "scale(1.2)" }}
+              >
                 -
               </Button>
               <Text px={3}>2</Text>
-              <Button bg='none' borderRadius='none'>
+              <Button
+                bg='none'
+                borderRadius='none'
+                _hover={{ bg: "none", transform: "scale(1.2)" }}
+              >
                 +
               </Button>
             </Flex>
           </Flex>
           <Spacer />
           <Flex pr={4} justifyContent='space-between' flexDirection='column'>
-            <Button bg='none' onClick={() => handleRemoveFromCart(product)}>
+            <Button
+              bg='none'
+              _hover={{ bg: "none", transform: "scale(1.2)" }}
+              onClick={() => handleRemoveFromCart(product)}
+            >
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text>
