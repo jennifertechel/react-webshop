@@ -1,8 +1,14 @@
-import { Box, Flex, Image, Icon, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Image, Icon, Badge } from "@chakra-ui/react";
 import { BsPerson, BsBag } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/cartContext";
 
 function Header() {
+  const { cart } = useCart();
+
+  // Calculate total quantity of items in cart
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <Flex
       as='header'
@@ -26,7 +32,20 @@ function Header() {
         </Link>
 
         <Link to='checkout'>
-          <Icon boxSize={8} as={BsBag} />
+          <Box pos='relative'>
+            <Icon boxSize={8} as={BsBag} />
+            {totalQuantity > 0 && (
+              <Badge
+                position='absolute'
+                top='-10px'
+                right='-6px'
+                colorScheme='red'
+                borderRadius='90%'
+              >
+                {totalQuantity}
+              </Badge>
+            )}
+          </Box>
         </Link>
       </Flex>
     </Flex>
