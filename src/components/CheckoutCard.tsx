@@ -7,10 +7,7 @@ import {
   Box,
   Button,
   Icon,
-  Stack,
-  Center,
   Spacer,
-  Divider,
 } from "@chakra-ui/react";
 import { Product } from "../../data";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -30,6 +27,9 @@ function CartCard({ product }: { product: Product }) {
       w='80%'
       variant='unstyled'
       my={2}
+      borderBottom='1px'
+      borderColor='blackAlpha.200'
+      pb={4}
     >
       <Box>
         <Image
@@ -40,14 +40,16 @@ function CartCard({ product }: { product: Product }) {
           m={2}
         />
       </Box>
-      <CardBody pt={8}>
-        <Flex justifyContent='space-between'>
-          <Box pl={4}>
-            <Text fontSize='xl'>{product.title} vas</Text>
-            <Text fontSize='sm'>
-              Höjd: &nbsp;
-              {product.height}
-            </Text>
+      <CardBody py={8}>
+        <Flex justifyContent='space-between' h='100%'>
+          <Flex pl={4} justifyContent='space-between' flexDirection='column'>
+            <Box>
+              <Text fontSize='xl'>{product.title} vas</Text>
+              <Text fontSize='sm'>
+                Höjd: &nbsp;
+                {product.height}
+              </Text>
+            </Box>
             <Flex
               justifyContent='center'
               alignItems='center'
@@ -64,19 +66,19 @@ function CartCard({ product }: { product: Product }) {
                 +
               </Button>
             </Flex>
-          </Box>
+          </Flex>
           <Spacer />
-          <Box pr={4}>
+          <Flex pr={4} justifyContent='space-between' flexDirection='column'>
             <Button bg='none' onClick={() => handleRemoveFromCart(product)}>
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text>
-              x {product.price}{" "}
+              á {product.price}
               <Text as='span' fontSize='xs'>
                 &nbsp;SEK
               </Text>
             </Text>
-          </Box>
+          </Flex>
         </Flex>
       </CardBody>
     </Card>
