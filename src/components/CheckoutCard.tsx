@@ -7,16 +7,13 @@ import {
   Box,
   Button,
   Icon,
-  Stack,
-  Center,
   Spacer,
-  Divider,
 } from "@chakra-ui/react";
 import { Product } from "../../data";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useCart } from "../context/cartContext";
 
-function CartCard({ product }: { product: Product }) {
+function CheckoutCard({ product }: { product: Product }) {
   const { removeFromCart } = useCart();
   const handleRemoveFromCart = (item: Product) => {
     removeFromCart(item.id);
@@ -30,6 +27,9 @@ function CartCard({ product }: { product: Product }) {
       w='80%'
       variant='unstyled'
       my={2}
+      borderBottom='1px'
+      borderColor='blackAlpha.200'
+      pb={4}
     >
       <Box>
         <Image
@@ -40,14 +40,16 @@ function CartCard({ product }: { product: Product }) {
           m={2}
         />
       </Box>
-      <CardBody pt={8}>
-        <Flex justifyContent='space-between'>
-          <Box pl={4}>
-            <Text fontSize='xl'>{product.title} vas</Text>
-            <Text fontSize='sm'>
-              Höjd: &nbsp;
-              {product.height}
-            </Text>
+      <CardBody py={8}>
+        <Flex justifyContent='space-between' h='100%'>
+          <Flex pl={4} justifyContent='space-between' flexDirection='column'>
+            <Box>
+              <Text fontSize='xl'>{product.title} vas</Text>
+              <Text fontSize='sm'>
+                Höjd: &nbsp;
+                {product.height}
+              </Text>
+            </Box>
             <Flex
               justifyContent='center'
               alignItems='center'
@@ -56,31 +58,43 @@ function CartCard({ product }: { product: Product }) {
               p={0}
               m={0}
             >
-              <Button bg='none' borderRadius='none'>
+              <Button
+                bg='none'
+                borderRadius='none'
+                _hover={{ bg: "none", transform: "scale(1.2)" }}
+              >
                 -
               </Button>
               <Text px={3}>2</Text>
-              <Button bg='none' borderRadius='none'>
+              <Button
+                bg='none'
+                borderRadius='none'
+                _hover={{ bg: "none", transform: "scale(1.2)" }}
+              >
                 +
               </Button>
             </Flex>
-          </Box>
+          </Flex>
           <Spacer />
-          <Box pr={4}>
-            <Button bg='none' onClick={() => handleRemoveFromCart(product)}>
+          <Flex pr={4} justifyContent='space-between' flexDirection='column'>
+            <Button
+              bg='none'
+              _hover={{ bg: "none", transform: "scale(1.2)" }}
+              onClick={() => handleRemoveFromCart(product)}
+            >
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text>
-              x {product.price}{" "}
+              á {product.price}
               <Text as='span' fontSize='xs'>
                 &nbsp;SEK
               </Text>
             </Text>
-          </Box>
+          </Flex>
         </Flex>
       </CardBody>
     </Card>
   );
 }
 
-export default CartCard;
+export default CheckoutCard;
