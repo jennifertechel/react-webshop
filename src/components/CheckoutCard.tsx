@@ -23,6 +23,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
   const { removeFromCart } = useCart();
   const handleRemoveFromCart = (item: Product) => {
     removeFromCart(item.id);
+    localStorage.removeItem("cartQuantity-" + item.id);
   };
   const incrementQuantity = () => {
     setQuantity(quantity + 1);

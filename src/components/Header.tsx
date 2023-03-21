@@ -32,7 +32,7 @@ function Header() {
         <Link to='admin'>
           <Icon boxSize={7} as={IoPersonOutline} />
         </Link>
-        <Link to='checkout'>
+        <Link to='checkout' data-cy='cart-link'>
           <Box pos='relative'>
             <Icon boxSize={7} as={IoBagOutline} />
             {totalQuantity > 0 && (
@@ -43,6 +43,7 @@ function Header() {
                 colorScheme='yellow'
                 fontSize='0.85rem'
                 borderRadius='10px'
+                data-cy='cart-items-count-badge'
               >
                 {totalQuantity}
               </Badge>
