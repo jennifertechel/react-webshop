@@ -30,8 +30,8 @@ function OverviewCard({ product }: { product: Product }) {
           <Image src={product.image} alt={product.title} />
           <Flex justifyContent="space-between" pt={3}>
             <Box>
-              <Text>{product.title} vas</Text>
-              <Text>
+              <Text data-cy="product-title">{product.title}</Text>
+              <Text data-cy="product-price">
                 {product.price}
                 <Text as="span" fontSize="xs">
                   &nbsp;SEK
