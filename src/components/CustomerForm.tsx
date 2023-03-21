@@ -1,13 +1,14 @@
 import {
-  Box,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Stack,
-  Text,
+    Box,
+    Button,
+    Center,
+    Flex,
+    FormControl,
+    FormLabel,
+    Heading,
+    Input,
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -82,7 +83,7 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.name && formik.errors.name && (
-                  <Text color='red'>{formik.errors.name}</Text>
+                  <Text data-cy="customer-name-error" color='red'>{formik.errors.name}</Text>
                 )}
               </FormControl>
 
@@ -100,7 +101,7 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.address && formik.errors.address && (
-                  <Text color='red'>{formik.errors.address}</Text>
+                  <Text data-cy="customer-address-error" color='red'>{formik.errors.address}</Text>
                 )}
               </FormControl>
 
@@ -154,7 +155,7 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.email && formik.errors.email && (
-                  <Text color='red'>{formik.errors.email}</Text>
+                  <Text data-cy="customer-email-error" color='red'>{formik.errors.email}</Text>
                 )}
               </FormControl>
 
@@ -172,12 +173,12 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.phone && formik.errors.phone && (
-                  <Text color='red'>{formik.errors.phone}</Text>
+                  <Text data-cy="customer-phone-error" color='red'>{formik.errors.phone}</Text>
                 )}
-                {/*
+                
                             <Box  pt="20px">
-                                <Button colorScheme="yellow" size="md">Slutför betalning</Button>
-                            </Box>*/}
+                                <Button colorScheme="yellow" size="md">Slutför beställning</Button>
+                            </Box>
               </FormControl>
             </Stack>
           </Box>
