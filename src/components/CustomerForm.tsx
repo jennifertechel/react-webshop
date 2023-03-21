@@ -1,13 +1,14 @@
 import {
-  Box,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Stack,
-  Text,
+    Box,
+    Button,
+    Center,
+    Flex,
+    FormControl,
+    FormLabel,
+    Heading,
+    Input,
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -51,7 +52,38 @@ function CustomerForm() {
         </Heading>
       </Center>
       <Center>
-        <Flex
+
+        <Box
+          p='28px'
+          w='75rem'
+          pt='5rem'
+          pb='5rem'
+          borderRadius='md'
+        >
+          <Flex
+          flexDirection= "column" 
+          justifyContent='center'
+          alignItems='center'
+
+            bg='brand.100'
+            borderRadius='md'
+            border='1px'
+            borderColor='yellow.400'
+          >
+            <Stack m='30px' spacing={6}>
+            <FormControl data-cy='customer-form'>
+                <FormLabel>Namn:</FormLabel>
+                <Input
+                
+                  data-cy='customer-name'
+                  bg='whiteAlpha.900'
+                  size='md'
+                  type='text'
+                  name='name'
+                  id='name'
+                  
+
+          <Flex
           justifyContent="center"
           alignItems="center"
           p="28px"
@@ -77,12 +109,17 @@ function CustomerForm() {
                   type="text"
                   name="name"
                   id="name"
+
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.name && formik.errors.name && (
+
+                  <Text data-cy="customer-name-error" color='red'>{formik.errors.name}</Text>
+
                   <Text color="red">{formik.errors.name}</Text>
+
                 )}
               </FormControl>
 
@@ -100,7 +137,11 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.address && formik.errors.address && (
+
+                  <Text data-cy="customer-address-error" color='red'>{formik.errors.address}</Text>
+
                   <Text color="red">{formik.errors.address}</Text>
+
                 )}
               </FormControl>
 
@@ -154,7 +195,11 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.email && formik.errors.email && (
+
+                  <Text data-cy="customer-email-error" color='red'>{formik.errors.email}</Text>
+
                   <Text color="red">{formik.errors.email}</Text>
+
                 )}
               </FormControl>
 
@@ -172,16 +217,21 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.phone && formik.errors.phone && (
+
+                  <Text data-cy="customer-phone-error" color='red'>{formik.errors.phone}</Text>
+
                   <Text color="red">{formik.errors.phone}</Text>
+
                 )}
-                {/*
-                            <Box  pt="20px">
-                                <Button colorScheme="yellow" size="md">Slutför betalning</Button>
-                            </Box>*/}
+                            <Center>
+                                <Box  pt="1.5rem">
+                                    <Button colorScheme="yellow" size="md">Slutför beställning</Button>
+                                </Box>
+                            </Center>
               </FormControl>
             </Stack>
-          </Box>
-        </Flex>
+          </Flex>
+        </Box>
       </Center>
     </div>
   );
