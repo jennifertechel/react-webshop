@@ -1,5 +1,7 @@
 import { Box, Flex, Image, Icon, Badge } from "@chakra-ui/react";
 import { BsPerson, BsBag } from "react-icons/bs";
+import { IoPersonOutline, IoBagOutline } from "react-icons/io5";
+
 import { Link } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 
@@ -28,12 +30,11 @@ function Header() {
       </Box>
       <Flex alignItems='center'>
         <Link to='admin'>
-          <Icon boxSize={8} as={BsPerson} />
+          <Icon boxSize={7} as={IoPersonOutline} />
         </Link>
-
         <Link to='checkout'>
           <Box pos='relative'>
-            <Icon boxSize={8} as={BsBag} />
+            <Icon boxSize={7} as={IoBagOutline} />
             {totalQuantity > 0 && (
               <Badge
                 position='absolute'
