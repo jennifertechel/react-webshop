@@ -2,13 +2,10 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
-  CardFooter,
   Flex,
   Heading,
   Image,
   Stack,
-  StackDivider,
   Text,
 } from "@chakra-ui/react";
 import { products } from "../../data";
@@ -17,8 +14,6 @@ import { Currency } from "../components/Currency";
 function Admin() {
   return (
     <Box>
-      <Box>Admin</Box>
-
       <Flex
         justifyContent="space-between"
         alignItems="center"
@@ -34,7 +29,7 @@ function Admin() {
       >
         <Button
           border="1px"
-          padding="8px"
+          padding="4px"
           color="#c2a77b"
           variant="link"
           ml="auto"
@@ -44,55 +39,52 @@ function Admin() {
         </Button>
       </Flex>
 
-      <Stack direction="column" spacing="4">
+      <Box mt="100px">
         {products.map((product) => (
           <Card key={product.id} variant="outline" overflow="hidden">
-            <Image
-              objectFit="cover"
-              maxH="300px"
-              maxW="300px"
-              src={product.image}
-              alt={product.title}
-              style={{ margin: "auto" }}
-            />
+            <Flex>
+              <Image
+                objectFit="cover"
+                maxH="300px"
+                maxW="300px"
+                src={product.image}
+                alt={product.title}
+                style={{ margin: "auto" }}
+              />
 
-            <CardBody>
-              <Stack divider={<StackDivider />}>
+              <Flex direction="column" justify="center" ml="4">
                 <Heading size="md">{product.title}</Heading>
                 <Text>{product.description}</Text>
-              </Stack>
-              <Text fontWeight="bold" fontSize="sm">
-                {Currency(product.price)}
-              </Text>
-            </CardBody>
+                <Text fontWeight="bold" fontSize="sm">
+                  {Currency(product.price)}
+                </Text>
+                <Flex justifyContent="space-between" alignItems="center">
+                  <Text fontWeight="bold" fontSize="lg"></Text>
 
-            <CardFooter>
-              <Flex justifyContent="space-between" alignItems="center">
-                <Text fontWeight="bold" fontSize="lg"></Text>
-
-                <Stack direction="row" spacing="5" ml="60">
-                  <Button
-                    border="1px"
-                    padding="8px"
-                    color="#c2a77b"
-                    variant="link"
-                  >
-                    Redigera
-                  </Button>
-                  <Button
-                    border="1px"
-                    padding="8px"
-                    color="#c2a77b"
-                    variant="link"
-                  >
-                    Ta bort
-                  </Button>
-                </Stack>
+                  <Stack direction="row" spacing="5">
+                    <Button
+                      border="1px"
+                      padding="8px"
+                      color="#c2a77b"
+                      variant="link"
+                    >
+                      Redigera
+                    </Button>
+                    <Button
+                      border="1px"
+                      padding="8px"
+                      color="#c2a77b"
+                      variant="link"
+                    >
+                      Ta bort
+                    </Button>
+                  </Stack>
+                </Flex>
               </Flex>
-            </CardFooter>
+            </Flex>
           </Card>
         ))}
-      </Stack>
+      </Box>
     </Box>
   );
 }
