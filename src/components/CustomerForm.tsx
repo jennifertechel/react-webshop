@@ -1,14 +1,14 @@
 import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Stack,
-  Text
+    Box,
+    Button,
+    Center,
+    Flex,
+    FormControl,
+    FormLabel,
+    Heading,
+    Input,
+    Stack,
+    Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -52,26 +52,28 @@ function CustomerForm() {
         </Heading>
       </Center>
       <Center>
-        <Flex
-          justifyContent='center'
-          alignItems='center'
+        <Box
           p='28px'
           w='75rem'
           pt='5rem'
           pb='5rem'
           borderRadius='md'
         >
-          <Box
-            w='45rem'
+          <Flex
+          flexDirection= "column" 
+          justifyContent='center'
+          alignItems='center'
+
             bg='brand.100'
             borderRadius='md'
             border='1px'
             borderColor='yellow.400'
           >
             <Stack m='30px' spacing={6}>
-              <FormControl data-cy='customer-form'>
+            <FormControl data-cy='customer-form'>
                 <FormLabel>Namn:</FormLabel>
                 <Input
+                
                   data-cy='customer-name'
                   bg='whiteAlpha.900'
                   size='md'
@@ -176,7 +178,6 @@ function CustomerForm() {
                 {formik.touched.phone && formik.errors.phone && (
                   <Text data-cy="customer-phone-error" color='red'>{formik.errors.phone}</Text>
                 )}
-                
                             <Center>
                                 <Box  pt="1.5rem">
                                     <Button colorScheme="yellow" size="md">Slutför beställning</Button>
@@ -184,8 +185,8 @@ function CustomerForm() {
                             </Center>
               </FormControl>
             </Stack>
-          </Box>
-        </Flex>
+          </Flex>
+        </Box>
       </Center>
     </div>
   );
