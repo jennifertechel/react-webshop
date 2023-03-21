@@ -1,14 +1,14 @@
 import {
-    Box,
-    Button,
-    Center,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Input,
-    Stack,
-    Text
+  Box,
+  Button,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Stack,
+  Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -56,13 +56,13 @@ function CustomerForm() {
           justifyContent='center'
           alignItems='center'
           p='28px'
-          w='1200px'
-          pt='80px'
-          pb='80px'
+          w='75rem'
+          pt='5rem'
+          pb='5rem'
           borderRadius='md'
         >
           <Box
-            w='680px'
+            w='45rem'
             bg='brand.100'
             borderRadius='md'
             border='1px'
@@ -78,6 +78,7 @@ function CustomerForm() {
                   type='text'
                   name='name'
                   id='name'
+                  
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -176,9 +177,11 @@ function CustomerForm() {
                   <Text data-cy="customer-phone-error" color='red'>{formik.errors.phone}</Text>
                 )}
                 
-                            <Box  pt="20px">
-                                <Button colorScheme="yellow" size="md">Slutför beställning</Button>
-                            </Box>
+                            <Center>
+                                <Box  pt="1.5rem">
+                                    <Button colorScheme="yellow" size="md">Slutför beställning</Button>
+                                </Box>
+                            </Center>
               </FormControl>
             </Stack>
           </Box>
