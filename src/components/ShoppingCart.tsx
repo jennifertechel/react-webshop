@@ -1,7 +1,7 @@
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
-import CheckoutCard from "./CheckoutCard";
-import { useCart } from "../context/cartContext";
 import { useMemo } from "react";
+import { useCart } from "../context/cartContext";
+import CheckoutCard from "./CheckoutCard";
 
 function ShoppingCart() {
   const { cart } = useCart();
@@ -14,25 +14,25 @@ function ShoppingCart() {
   return (
     <Box py={6}>
       <Center>
-        <Heading as='h3' size='md' p='4' textTransform='uppercase'>
+        <Heading as="h3" size="md" p="4" textTransform="uppercase">
           Din varukorg
         </Heading>
       </Center>
 
-      <Box width='100%'>
+      <Box width="100%">
         {cart.map((item) => (
           <Center>
-            <CheckoutCard key={item.id} product={item} />
+            <CheckoutCard data-cy="product" key={item.id} product={item} />
           </Center>
         ))}
       </Box>
 
       <Center>
-        <Flex pt={3} justifyContent='space-between' w='80%' px={4}>
+        <Flex pt={3} justifyContent="space-between" w="80%" px={4}>
           <Text>Totalt:</Text>
-          <Text data-cy='total-price'>
+          <Text data-cy="total-price">
             {totalPrice}
-            <Text as='span' fontSize='xs'>
+            <Text as="span" fontSize="xs">
               &nbsp;SEK
             </Text>
           </Text>
