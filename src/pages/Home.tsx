@@ -1,26 +1,37 @@
-import { Box, Center, Grid, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Grid,
+  Heading,
+  Image,
+  Text,
+  Flex,
+} from "@chakra-ui/react";
 import { products } from "../../data";
 import OverviewCard from "../components/OverviewCard";
 
 function Home() {
   return (
     <div>
-      <Box pos='relative'>
-        <Image src='/public/hero-md.svg' />
-        <Box
-          position='absolute'
-          top='50%'
-          left='25%'
-          transform='translate(-50%, -25%)'
-        >
+      <Flex
+        w='full'
+        h='65vh'
+        bgImage='linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url(/public/hero-md.svg)'
+        bgSize='cover'
+        bgPos={{ base: "left", md: "center" }}
+        flexDir='column'
+        justifyContent='center'
+        alignItems={{ base: "center", md: "flex-start" }}
+      >
+        <Box pl={{ base: 0, md: "18rem" }}>
           <Text>Handmade ceramic vases</Text>
           <Heading>
             Some fun slogan
-            <br />
-            not involving groovy
+            <br /> and stay groovy
           </Heading>
         </Box>
-      </Box>
+      </Flex>
+
       <Box py={6}>
         <Center>
           <Text fontSize='2xl'>NYHETER</Text>
