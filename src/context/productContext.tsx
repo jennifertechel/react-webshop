@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren, useContext, useEffect } from "react";
 import { products } from "../../data";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
-interface Product {
+export interface Product {
   id: string;
   image: string;
   title: string;
