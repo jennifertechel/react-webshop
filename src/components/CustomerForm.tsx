@@ -10,7 +10,6 @@ import {
   Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
-import { useState } from "react";
 import { Form } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -31,7 +30,7 @@ const CustomerSchema = Yup.object().shape({
 
 type CustomerValues = Yup.InferType<typeof CustomerSchema>;
 
-const [customerData, setCustomerData] = useState({});
+//const [customerData, setCustomerData] = useState({});
 
 function CustomerForm() {
   const formik = useFormik({
@@ -45,7 +44,7 @@ function CustomerForm() {
     },
     validationSchema: CustomerSchema,
     onSubmit: (values) => {
-      setCustomerData(values);
+      
     },
   });
 
