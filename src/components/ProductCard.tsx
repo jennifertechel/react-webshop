@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardBody,
@@ -20,14 +21,8 @@ function ProductCard({ product }: { product: Product }) {
 
   const handleAddToCart = (item: Product) => {
     addToCart(item);
-    toast({
-      // Call the useToast hook to show a toast notification
-      title: "Product added to cart",
-      status: "success",
-      duration: 1000,
-      isClosable: false,
-    });
   };
+
   return (
     <Flex justifyContent="center" alignItems="center">
       <Card
@@ -80,7 +75,22 @@ function ProductCard({ product }: { product: Product }) {
 
             <CardFooter flexDirection={{ base: "column", md: "row" }}>
               <Button
-                onClick={() => handleAddToCart(product)}
+                onClick={() => {
+                  handleAddToCart(product);
+                  toast({
+                    position: "bottom",
+                    render: () => (
+                      <Box
+                        data-cy="added-to-cart-toast"
+                        color="white"
+                        p={3}
+                        bg="blue.500"
+                      >
+                        {product.title} har lagts till i varukorgen!
+                      </Box>
+                    ),
+                  });
+                }}
                 data-cy="product-buy-button"
                 variant="outline"
                 colorScheme="yellow"

@@ -20,13 +20,6 @@ function OverviewCard({ product }: { product: Product }) {
 
   const handleAddToCart = (item: Product) => {
     addToCart(item);
-    toast({
-      // Call the useToast hook to show a toast notification
-      title: "Product added to cart",
-      status: "success",
-      duration: 1000,
-      isClosable: false,
-    });
   };
 
   return (
@@ -63,7 +56,22 @@ function OverviewCard({ product }: { product: Product }) {
             border="none"
             color="black"
             borderRadius="none"
-            onClick={() => handleAddToCart(product)}
+            onClick={() => {
+              handleAddToCart(product);
+              toast({
+                position: "bottom",
+                render: () => (
+                  <Box
+                    data-cy="added-to-cart-toast"
+                    color="white"
+                    p={3}
+                    bg="blue.500"
+                  >
+                    {product.title} har lagts till i varukorgen!
+                  </Box>
+                ),
+              });
+            }}
             _hover={{ bg: "orange.100" }}
           >
             <Icon boxSize={6} as={IoMdAdd} />
