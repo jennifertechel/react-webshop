@@ -28,6 +28,7 @@ function Admin() {
         zIndex="1"
       >
         <Button
+          data-cy="admin-add-product"
           border="1px"
           padding="4px"
           color="#c2a77b"
@@ -63,6 +64,7 @@ function Admin() {
 
                   <Stack direction="row" spacing="5">
                     <Button
+                      data-cy="admin-edit-product"
                       border="1px"
                       padding="8px"
                       color="#c2a77b"
@@ -71,6 +73,7 @@ function Admin() {
                       Redigera
                     </Button>
                     <Button
+                      data-cy="admin-remove-product"
                       border="1px"
                       padding="8px"
                       color="#c2a77b"
