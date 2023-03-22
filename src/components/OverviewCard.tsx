@@ -63,9 +63,9 @@ function OverviewCard({ product }: { product: Product }) {
                 render: () => (
                   <Box
                     data-cy="added-to-cart-toast"
-                    color="black"
+                    color="green.500"
                     p={3}
-                    bg="yellow.400"
+                    bg="white"
                   >
                     {product.title} har lagts till i varukorgen!
                   </Box>
