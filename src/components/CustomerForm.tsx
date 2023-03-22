@@ -1,24 +1,25 @@
 import {
   Box,
+  Button,
   Center,
   Flex,
   FormControl,
   FormLabel,
   Heading,
-  Input,
-  Stack,
-  Text,
+  Input, Stack,
+  Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import { Form } from "react-router-dom";
 import * as Yup from "yup";
 
 const CustomerSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Namnet måste innehålla minst två tecken")
-    .required("Vänlig ange ditt namn"),
+    .required("Vänligen ange ditt namn"),
   address: Yup.string()
     .min(4, "Adressen måste innehålla minst fyra tecken")
-    .required("Vänlig ange din fullständiga adress"),
+    .required("Vänligen ange din fullständiga adress"),
   email: Yup.string()
     .email("Invalid email")
     .required("Vänligen ange en giltlig emailadress"),
@@ -28,6 +29,8 @@ const CustomerSchema = Yup.object().shape({
 });
 
 type CustomerValues = Yup.InferType<typeof CustomerSchema>;
+
+//const [customerData, setCustomerData] = useState({});
 
 function CustomerForm() {
   const formik = useFormik({
@@ -40,53 +43,65 @@ function CustomerForm() {
       phone: "",
     },
     validationSchema: CustomerSchema,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {
+      
+    },
   });
+
+ 
 
   return (
     <div>
+      <Form>
       <Center>
         <Heading as="h3" size="md" p="4" textTransform="uppercase">
           Dina uppgifter
         </Heading>
       </Center>
       <Center>
-        <Flex
-          justifyContent="center"
-          alignItems="center"
-          p="28px"
-          w="1200px"
-          pt="80px"
-          pb="80px"
-          borderRadius="md"
+
+        <Box
+          p='28px'
+          w='75rem'
+          pt='5rem'
+          pb='5rem'
+          borderRadius='md'
         >
-          <Box
-            w="680px"
-            bg="brand.100"
-            borderRadius="md"
-            border="1px"
-            borderColor="yellow.400"
+          <Flex
+          flexDirection= "column" 
+          justifyContent='center'
+          alignItems='center'
+
+            bg='brand.100'
+            borderRadius='md'
+            border='1px'
+            borderColor='yellow.400'
           >
-            <Stack m="30px" spacing={6}>
-              <FormControl data-cy="customer-form">
+            <Stack m='30px' spacing={6}>
+            <FormControl isRequired data-cy='customer-form'>
                 <FormLabel>Namn:</FormLabel>
                 <Input
-                  data-cy="customer-name"
-                  bg="whiteAlpha.900"
-                  size="md"
-                  type="text"
-                  name="name"
-                  id="name"
+                
+                  data-cy='customer-name'
+                  bg='whiteAlpha.900'
+                  size='md'
+                  type='text'
+                  name='name'
+                  id='name'
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.name && formik.errors.name && (
-                  <Text color="red">{formik.errors.name}</Text>
+
+                  <Text data-cy="customer-name-error" color='red'>{formik.errors.name}</Text>
+
+                 
+
                 )}
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Adress:</FormLabel>
                 <Input
                   data-cy="customer-address"
@@ -100,11 +115,15 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.address && formik.errors.address && (
-                  <Text color="red">{formik.errors.address}</Text>
+
+                  <Text data-cy="customer-address-error" color='red'>{formik.errors.address}</Text>
+
+                
+
                 )}
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Postnummer:</FormLabel>
                 <Input
                   data-cy="customer-zipcode"
@@ -122,7 +141,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Stad:</FormLabel>
                 <Input
                   data-cy="customer-city"
@@ -140,7 +159,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Email:</FormLabel>
                 <Input
                   data-cy="customer-email"
@@ -154,11 +173,14 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.email && formik.errors.email && (
-                  <Text color="red">{formik.errors.email}</Text>
+
+                  <Text data-cy="customer-email-error" color='red'>{formik.errors.email}</Text>
+
+               
                 )}
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Telefonnummer:</FormLabel>
                 <Input
                   data-cy="customer-phone"
@@ -172,17 +194,22 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.phone && formik.errors.phone && (
-                  <Text color="red">{formik.errors.phone}</Text>
+
+                  <Text data-cy="customer-phone-error" color='red'>{formik.errors.phone}</Text>
+
+                
                 )}
-                {/*
-                            <Box  pt="20px">
-                                <Button colorScheme="yellow" size="md">Slutför betalning</Button>
-                            </Box>*/}
+                            <Center>
+                                <Box  pt="1.5rem">
+                                    <Button onClick={() => {}} colorScheme="yellow" size="md" type="submit">Slutför beställning</Button>
+                                </Box>
+                            </Center>
               </FormControl>
             </Stack>
-          </Box>
-        </Flex>
+          </Flex>
+        </Box>
       </Center>
+      </Form>
     </div>
   );
 }
