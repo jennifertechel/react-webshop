@@ -14,6 +14,8 @@ import { useProducts } from "../context/productContext";
 function Admin() {
   const { products, deleteProduct } = useProducts();
 
+  // const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+
   return (
     <Box>
       <Flex
@@ -79,9 +81,21 @@ function Admin() {
                       variant="link"
                       data-cy="admin-remove-product"
                       onClick={() => deleteProduct(product.id)}
+                      // onClick={() => setIsDeleteDialogOpen(true)}
                     >
                       Ta bort
                     </Button>
+                    {/* <MyAlertDialog
+                      isOpen={isDeleteDialogOpen}
+                      onClose={() => setIsDeleteDialogOpen(false)}
+                      title="Ta bort"
+                      message="Är du säker på att du vill ta bort produkten?"
+                      onConfirm={() => {
+                        deleteProduct(product.id);
+                        setIsDeleteDialogOpen(false);
+                      }}
+                      confirmButtonText="Ta bort"
+                    /> */}
                   </Stack>
                 </Flex>
               </Flex>
