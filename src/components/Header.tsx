@@ -28,7 +28,7 @@ function Header() {
         </Link>
       </Box>
       <Flex alignItems="center">
-        <Link to="admin">
+        <Link to="admin" data-cy="admin-link">
           <Icon boxSize={7} as={IoPersonOutline} />
         </Link>
         <Link to="checkout" data-cy="cart-link">
