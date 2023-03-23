@@ -13,10 +13,12 @@ export interface Product {
 
 interface ProductContextProps {
   products: Product[];
+  deleteProduct: (productId: string) => void;
 }
 
 const ProductContext = createContext<ProductContextProps>({
   products: [],
+  deleteProduct: () => {},
 });
 
 export const useProducts = () => useContext(ProductContext);
@@ -27,12 +29,16 @@ export default function ProductProvider(props: PropsWithChildren) {
     "products"
   );
 
+  const deleteProduct = (productId: string) => {
+    setProductList(productList.filter((product) => product.id !== productId));
+  };
+
   useEffect(() => {
     setProductList(products);
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products: productList }}>
+    <ProductContext.Provider value={{ products: productList, deleteProduct }}>
       {props.children}
     </ProductContext.Provider>
   );

@@ -8,10 +8,12 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { products } from "../../data";
 import { Currency } from "../components/Currency";
+import { useProducts } from "../context/productContext";
 
 function Admin() {
+  const { products, deleteProduct } = useProducts();
+
   return (
     <Box>
       <Flex
@@ -75,6 +77,8 @@ function Admin() {
                       padding="8px"
                       color="#c2a77b"
                       variant="link"
+                      data-cy="admin-remove-product"
+                      onClick={() => deleteProduct(product.id)}
                     >
                       Ta bort
                     </Button>
