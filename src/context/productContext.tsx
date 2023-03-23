@@ -1,23 +1,12 @@
 import { createContext, PropsWithChildren, useContext, useEffect } from "react";
-import { products } from "../../data";
+import { products, Product } from "../../data";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
-
-export interface Product {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  height: string;
-}
 
 interface ProductContextProps {
   products: Product[];
 }
 
-const ProductContext = createContext<ProductContextProps>({
-  products: [],
-});
+const ProductContext = createContext<ProductContextProps>(null as any);
 
 export const useProducts = () => useContext(ProductContext);
 
@@ -26,10 +15,6 @@ export default function ProductProvider(props: PropsWithChildren) {
     products,
     "products"
   );
-
-  useEffect(() => {
-    setProductList(products);
-  }, []);
 
   return (
     <ProductContext.Provider value={{ products: productList }}>

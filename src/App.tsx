@@ -21,15 +21,17 @@ function App() {
   return (
     <ProductProvider>
       <CartProvider>
-        <ChakraProvider theme={theme}>
-          <Box bg='brand.100'>
-            <Header />
-            <main style={{ paddingTop: "5.8rem" }}>
-              <Outlet />
-            </main>
-            <Footer />
-          </Box>
-        </ChakraProvider>
+        <OrderProvider>
+          <ChakraProvider theme={theme}>
+            <Box bg='brand.100'>
+              <Header />
+              <main style={{ paddingTop: "5.8rem" }}>
+                <Outlet />
+              </main>
+              <Footer />
+            </Box>
+          </ChakraProvider>
+        </OrderProvider>
       </CartProvider>
     </ProductProvider>
   );
