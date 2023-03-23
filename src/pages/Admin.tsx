@@ -52,10 +52,9 @@ function Admin() {
                 alt={product.title}
                 style={{ margin: "auto" }}
               />
-
               <Flex direction="column" justify="center" ml="4">
                 <Heading size="md">{product.title}</Heading>
-                <Text>{product.description}</Text>
+                <Text>{product.id}</Text>
                 <Text fontWeight="bold" fontSize="sm">
                   {Currency(product.price)}
                 </Text>
