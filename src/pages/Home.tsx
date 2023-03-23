@@ -1,16 +1,10 @@
-import {
-  Box,
-  Center,
-  Grid,
-  Heading,
-  Image,
-  Text,
-  Flex,
-} from "@chakra-ui/react";
-import { products } from "../../data";
+import { Box, Center, Grid, Heading, Text, Flex } from "@chakra-ui/react";
 import OverviewCard from "../components/OverviewCard";
+import { useProducts } from "../context/productContext";
 
 function Home() {
+  const { products } = useProducts();
+
   return (
     <div>
       <Flex
