@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
-import { Form } from "react-router-dom";
+import { Form, Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useOrder } from "../context/orderContext";
 
@@ -34,6 +34,7 @@ export type CustomerValues = Yup.InferType<typeof CustomerSchema>;
 
 function CustomerForm() {
   const { handleOrderSubmit } = useOrder();
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -46,6 +47,7 @@ function CustomerForm() {
     validationSchema: CustomerSchema,
     onSubmit: (values) => {
       handleOrderSubmit(values);
+      navigate("/order");
     },
   });
 
@@ -68,7 +70,7 @@ function CustomerForm() {
             borderColor='yellow.400'
           >
             <Stack m='30px' spacing={6}>
-              <FormControl isRequired data-cy='customer-form'>
+              <FormControl data-cy='customer-form'>
                 <FormLabel>Namn:</FormLabel>
                 <Input
                   data-cy='customer-name'
@@ -88,7 +90,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl isRequired>
+              <FormControl>
                 <FormLabel>Adress:</FormLabel>
                 <Input
                   data-cy='customer-address'
@@ -108,7 +110,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl isRequired>
+              <FormControl>
                 <FormLabel>Postnummer:</FormLabel>
                 <Input
                   data-cy='customer-zipcode'
@@ -126,7 +128,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl isRequired>
+              <FormControl>
                 <FormLabel>Stad:</FormLabel>
                 <Input
                   data-cy='customer-city'
@@ -144,7 +146,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl isRequired>
+              <FormControl>
                 <FormLabel>Email:</FormLabel>
                 <Input
                   data-cy='customer-email'
@@ -164,7 +166,7 @@ function CustomerForm() {
                 )}
               </FormControl>
 
-              <FormControl isRequired>
+              <FormControl>
                 <FormLabel>Telefonnummer:</FormLabel>
                 <Input
                   data-cy='customer-phone'
