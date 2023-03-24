@@ -87,7 +87,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
               >
                 -
               </Button>
-              <Text px={3}>{quantity}</Text>
+              <Text px={3}>{product.quantity}</Text>
               <Button
                 bg='none'
                 borderRadius='none'

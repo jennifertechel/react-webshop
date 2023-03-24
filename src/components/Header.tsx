@@ -12,27 +12,39 @@ function Header() {
 
   return (
     <Flex
+      justifyContent="flex-end"
+      alignItems="center"
+      width="100%"
       as="header"
-      p={4}
+      p={8}
       borderBottom="1px"
       borderColor="blackAlpha.200"
       bg="brand.100"
       position="fixed"
       zIndex="sticky"
-      width="100%"
-      justifyContent="space-between"
     >
-      <Box mx="auto">
+      <Box
+        position="absolute"
+        left={{ base: "15%", md: "50%" }}
+        transform="translateX(-50%)"
+      >
         <Link to="/">
-          <Image src="logo.svg" maxWidth="150px" maxHeight="100%" />
+          <Image
+            src="logo.svg"
+            maxWidth={{ base: "120px", md: "150px" }}
+            maxHeight="100%"
+          />
         </Link>
       </Box>
-      <Flex alignItems="center">
-        <Link to="admin" data-cy="admin-link">
-          <Icon boxSize={7} as={IoPersonOutline} />
-        </Link>
-        <Link to="checkout" data-cy="cart-link">
-          <Box pos="relative">
+      <Flex alignItems="center" justifyContent="space-between">
+        <Box pr={{ base: 1, md: 4 }}>
+          <Link data-cy="admin-link" to="admin">
+            <Icon boxSize={7} as={IoPersonOutline} />
+          </Link>
+        </Box>
+
+        <Box pos="relative" mr={{ base: 0, md: 4 }}>
+          <Link to="checkout" data-cy="cart-link">
             <Icon boxSize={7} as={IoBagOutline} />
             {totalQuantity > 0 && (
               <Badge
@@ -48,8 +60,8 @@ function Header() {
                 {totalQuantity}
               </Badge>
             )}
-          </Box>
-        </Link>
+          </Link>
+        </Box>
       </Flex>
     </Flex>
   );
