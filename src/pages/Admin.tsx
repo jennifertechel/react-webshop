@@ -4,14 +4,19 @@ import {
   Card,
   Flex,
   Heading,
+  Icon,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { products } from "../../data";
+import { AiOutlineEdit } from "react-icons/ai";
+import AlertDialogDelete from "../components/AlertDialog";
 import { Currency } from "../components/Currency";
+import { useProducts } from "../context/productContext";
 
 function Admin() {
+  const { products, deleteProduct } = useProducts();
+
   return (
     <Box>
       <Flex
@@ -41,7 +46,12 @@ function Admin() {
 
       <Box mt="100px">
         {products.map((product) => (
-          <Card key={product.id} variant="outline" overflow="hidden">
+          <Card
+            data-cy="product"
+            key={product.id}
+            variant="outline"
+            overflow="hidden"
+          >
             <Flex>
               <Image
                 objectFit="cover"
@@ -53,31 +63,25 @@ function Admin() {
               />
 
               <Flex direction="column" justify="center" ml="4">
-                <Heading size="md">{product.title}</Heading>
+                <Heading data-cy="product-title" size="md">
+                  {product.title}
+                </Heading>
                 <Text>{product.description}</Text>
-                <Text fontWeight="bold" fontSize="sm">
+                <Text data-cy="product-id">{product.id}</Text>
+
+                <Text data-cy="product-price" fontWeight="bold" fontSize="sm">
                   {Currency(product.price)}
                 </Text>
                 <Flex justifyContent="space-between" alignItems="center">
                   <Text fontWeight="bold" fontSize="lg"></Text>
+                  <AlertDialogDelete productId={product.id} />
 
                   <Stack direction="row" spacing="5">
-                    <Button
-                      border="1px"
-                      padding="8px"
-                      color="#c2a77b"
-                      variant="link"
-                    >
-                      Redigera
-                    </Button>
-                    <Button
-                      border="1px"
-                      padding="8px"
-                      color="#c2a77b"
-                      variant="link"
-                    >
-                      Ta bort
-                    </Button>
+                    <Icon
+                      data-cy="admin-remove-product"
+                      boxSize={7}
+                      as={AiOutlineEdit}
+                    />
                   </Stack>
                 </Flex>
               </Flex>
