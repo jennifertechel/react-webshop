@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CartProvider from "./context/cartContext";
+import OrderProvider from "./context/orderContext";
 import ProductProvider from "./context/productContext";
 
 const theme = extendTheme({
@@ -21,15 +22,17 @@ function App() {
   return (
     <ProductProvider>
       <CartProvider>
-        <ChakraProvider theme={theme}>
-          <Box bg='brand.100'>
-            <Header />
-            <main style={{ paddingTop: "5.8rem" }}>
-              <Outlet />
-            </main>
-            <Footer />
-          </Box>
-        </ChakraProvider>
+        <OrderProvider>
+          <ChakraProvider theme={theme}>
+            <Box bg='brand.100'>
+              <Header />
+              <main style={{ paddingTop: "5.8rem" }}>
+                <Outlet />
+              </main>
+              <Footer />
+            </Box>
+          </ChakraProvider>
+        </OrderProvider>
       </CartProvider>
     </ProductProvider>
   );

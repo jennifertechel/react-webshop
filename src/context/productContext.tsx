@@ -1,15 +1,6 @@
-import { createContext, PropsWithChildren, useContext, useEffect } from "react";
-import { products } from "../../data";
+import { createContext, PropsWithChildren, useContext } from "react";
+import { Product, products } from "../../data";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
-
-export interface Product {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  height: string;
-}
 
 interface ProductContextProps {
   products: Product[];
