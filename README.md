@@ -145,8 +145,8 @@ _Gjorda krav ska kryssas för._
 
 **Admin**
 
-- [ ] Det finns en admin-sida för produkthantering
-- [ ] Det ska gå att se alla produkter på admin sidan
+- [x] Det finns en admin-sida för produkthantering
+- [x] Det ska gå att se alla produkter på admin sidan
 - [ ] Det går att lägga till produkter via admin sidan + ls
 - [ ] Det går att ta bort produkter via admin sidan + ls
 - [ ] Det går att redigera produkter via admin sidan + ls

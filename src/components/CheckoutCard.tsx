@@ -20,18 +20,22 @@ function CheckoutCard({ product }: { product: CartItem }) {
     "cartQuantity-" + product.id
   );
 
-  const { removeFromCart } = useCart();
+  const { removeFromCart, updateCartItemQuantity } = useCart();
   const handleRemoveFromCart = (item: Product) => {
     removeFromCart(item.id);
     localStorage.removeItem("cartQuantity-" + item.id);
   };
   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    updateCartItemQuantity(product.id, newQuantity);
   };
 
   const decrementQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      const newQuantity = quantity - 1;
+      setQuantity(newQuantity);
+      updateCartItemQuantity(product.id, newQuantity);
     }
   };
 
@@ -83,7 +87,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
               >
                 -
               </Button>
-              <Text px={3}>{quantity}</Text>
+              <Text px={3}>{product.quantity}</Text>
               <Button
                 bg='none'
                 borderRadius='none'
@@ -104,7 +108,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text>
-              á {product.price * quantity}
+              á {product.price}
               <Text as='span' fontSize='xs'>
                 &nbsp;SEK
               </Text>
