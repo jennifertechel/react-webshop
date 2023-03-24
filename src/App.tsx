@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CartProvider from "./context/cartContext";
+import OrderProvider from "./context/orderContext";
 import ProductProvider from "./context/productContext";
 
 const theme = extendTheme({

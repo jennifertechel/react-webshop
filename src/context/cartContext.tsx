@@ -1,18 +1,6 @@
 import { createContext, useContext, useState, PropsWithChildren } from "react";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
-
-interface Product {
-  id: string;
-  image: string;
-  title: string;
-  description: string;
-  price: number;
-  height: string;
-}
-
-interface CartItem extends Product {
-  quantity: number;
-}
+import type { CartItem, Product } from "../../data";
 
 interface CartContextProps {
   cart: CartItem[];
@@ -21,12 +9,7 @@ interface CartContextProps {
   updateCartItemQuantity: (itemId: string, newQuantity: number) => void;
 }
 
-const CartContext = createContext<CartContextProps>({
-  cart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  updateCartItemQuantity: () => {},
-});
+const CartContext = createContext<CartContextProps>(null as any);
 
 export const useCart = () => useContext(CartContext);
 

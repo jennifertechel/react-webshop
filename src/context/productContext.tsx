@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useContext, useEffect } from "react";
+import { createContext, PropsWithChildren, useContext } from "react";
 import { products, Product } from "../../data";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
