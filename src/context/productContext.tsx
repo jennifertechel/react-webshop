@@ -24,10 +24,6 @@ export default function ProductProvider(props: PropsWithChildren) {
     setProductList(productList.filter((product) => product.id !== productId));
   };
 
-  useEffect(() => {
-    setProductList(products);
-  }, []);
-
   return (
     <ProductContext.Provider value={{ products: productList, deleteProduct }}>
       {props.children}
