@@ -6,45 +6,70 @@ import {
   AlertDialogHeader,
   AlertDialogOverlay,
   Button,
+  Icon,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+import React from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { useProducts } from "../context/productContext";
 
-interface AlertDialogProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  message: string;
-  onConfirm: () => void;
-  confirmButtonText: string;
+interface Props {
+  productId: string;
 }
 
-export default function MyAlertDialog(props: AlertDialogProps) {
-  const cancelRef = useRef<HTMLButtonElement>(null);
+function AlertDialogDelete({ productId }: Props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const cancelRef = React.useRef<HTMLButtonElement | null>(null);
+  const { deleteProduct } = useProducts();
+
+  const handleDelete = () => {
+    deleteProduct(productId);
+    onClose();
+  };
 
   return (
-    <AlertDialog
-      isOpen={props.isOpen}
-      leastDestructiveRef={cancelRef}
-      onClose={props.onClose}
-    >
-      <AlertDialogOverlay />
-      <AlertDialogContent>
-        <AlertDialogHeader>{props.title}</AlertDialogHeader>
-        <AlertDialogBody>{props.message}</AlertDialogBody>
-        <AlertDialogFooter>
-          <Button ref={cancelRef} onClick={props.onClose}>
-            Ångra
-          </Button>
-          <Button
-            data-cy="confirm-delete-button"
-            colorScheme="red"
-            ml={3}
-            onClick={props.onConfirm}
-          >
-            {props.confirmButtonText}
-          </Button>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+    <>
+      <Icon
+        data-cy="admin-remove-product"
+        onClick={onOpen}
+        boxSize={7}
+        as={AiOutlineDelete}
+      />
+
+      <AlertDialog
+        isOpen={isOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={onClose}
+      >
+        <AlertDialogOverlay>
+          <AlertDialogContent>
+            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+              Är du säker på att du vill ta bort produkten?
+            </AlertDialogHeader>
+
+            <AlertDialogBody>
+              Du kan inte ångra ditt val efter att du tagit bort en produkt
+            </AlertDialogBody>
+
+            <AlertDialogFooter>
+              <Button ref={cancelRef} onClick={onClose}>
+                Ångra
+              </Button>
+              <Button
+                data-cy="confirm-delete-button"
+                colorScheme="red"
+                onClick={handleDelete}
+                ml={3}
+              >
+                Ta bort
+              </Button>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialogOverlay>
+      </AlertDialog>
+    </>
   );
 }
+
+export default AlertDialogDelete;

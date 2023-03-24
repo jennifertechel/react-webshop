@@ -8,13 +8,12 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import AlertDialogDelete from "../components/AlertDialog";
 import { Currency } from "../components/Currency";
 import { useProducts } from "../context/productContext";
 
 function Admin() {
   const { products, deleteProduct } = useProducts();
-
-  // const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
 
   return (
     <Box>
@@ -45,7 +44,12 @@ function Admin() {
 
       <Box mt="100px">
         {products.map((product) => (
-          <Card key={product.id} variant="outline" overflow="hidden">
+          <Card
+            data-cy="product"
+            key={product.id}
+            variant="outline"
+            overflow="hidden"
+          >
             <Flex>
               <Image
                 objectFit="cover"
@@ -57,45 +61,27 @@ function Admin() {
               />
 
               <Flex direction="column" justify="center" ml="4">
-                <Heading size="md">{product.title}</Heading>
+                <Heading data-cy="product-title" size="md">
+                  {product.title}
+                </Heading>
                 <Text>{product.description}</Text>
-                <Text fontWeight="bold" fontSize="sm">
+                <Text data-cy="product-id">{product.id}</Text>
+                <Text data-cy="product-price" fontWeight="bold" fontSize="sm">
                   {Currency(product.price)}
                 </Text>
                 <Flex justifyContent="space-between" alignItems="center">
                   <Text fontWeight="bold" fontSize="lg"></Text>
+                  <AlertDialogDelete productId={product.id} />
 
                   <Stack direction="row" spacing="5">
-                    <Button
+                    {/* <Button
                       border="1px"
                       padding="8px"
                       color="#c2a77b"
                       variant="link"
                     >
                       Redigera
-                    </Button>
-                    <Button
-                      border="1px"
-                      padding="8px"
-                      color="#c2a77b"
-                      variant="link"
-                      data-cy="admin-remove-product"
-                      onClick={() => deleteProduct(product.id)}
-                      // onClick={() => setIsDeleteDialogOpen(true)}
-                    >
-                      Ta bort
-                    </Button>
-                    {/* <MyAlertDialog
-                      isOpen={isDeleteDialogOpen}
-                      onClose={() => setIsDeleteDialogOpen(false)}
-                      title="Ta bort"
-                      message="Är du säker på att du vill ta bort produkten?"
-                      onConfirm={() => {
-                        deleteProduct(product.id);
-                        setIsDeleteDialogOpen(false);
-                      }}
-                      confirmButtonText="Ta bort"
-                    /> */}
+                    </Button> */}
                   </Stack>
                 </Flex>
               </Flex>
