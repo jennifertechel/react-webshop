@@ -11,9 +11,9 @@ import {
 } from "@chakra-ui/react";
 import { IoMdAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
-//import { Product } from "../../data";
+import type { Product } from "../../data";
 import { useCart } from "../context/cartContext";
-import { useProducts, Product } from "../context/productContext";
+import { useProducts } from "../context/productContext";
 
 function OverviewCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
