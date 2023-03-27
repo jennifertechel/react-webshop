@@ -10,6 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { AiOutlineEdit } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import AlertDialogDelete from "../components/AlertDialog";
 import { Currency } from "../components/Currency";
 import { useProducts } from "../context/productContext";
@@ -78,11 +79,13 @@ function Admin() {
                   <AlertDialogDelete productId={product.id} />
 
                   <Stack direction="row" spacing="5">
-                    <Icon
-                      data-cy="admin-remove-product"
-                      boxSize={7}
-                      as={AiOutlineEdit}
-                    />
+                    <Link to="/edit">
+                      <Icon
+                        data-cy="admin-edit-product"
+                        boxSize={7}
+                        as={AiOutlineEdit}
+                      />
+                    </Link>
                   </Stack>
                 </Flex>
               </Flex>

@@ -1,4 +1,11 @@
-import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 
 export type ProductFormProps = {
@@ -27,48 +34,50 @@ function ProductForm({ product }: ProductFormProps) {
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ isSubmitting }) => (
         <Form>
-          <Box>
-            <FormControl>
-              <FormLabel htmlFor="title">Produktnamn: </FormLabel>
-              <Field id="title" name="title" as={Input} bg="white" />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="description">Beskrivning: </FormLabel>
-              <Field
-                id="description"
-                name="description"
-                as={Input}
-                bg="white"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="price">Pris: </FormLabel>
-              <Field id="price" name="price" as={Input} bg="white" />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="image">Bild</FormLabel>
-              <Field id="image" name="image">
-                {({ form, field }: { form: any; field: any }) => (
-                  <Input
-                    id="image"
-                    name="image"
-                    type="file"
-                    onChange={(event: any) =>
-                      form.setFieldValue(field.name, event.target.files[0])
-                    }
-                  />
-                )}
-              </Field>
-            </FormControl>
-            <Button
-              mt={4}
-              colorScheme="yellow"
-              isLoading={isSubmitting}
-              type="submit"
-            >
-              Spara
-            </Button>
-          </Box>
+          <Center>
+            <Box p="28px" w="50rem" pt="5rem" pb="5rem" borderRadius="md">
+              <FormControl>
+                <FormLabel htmlFor="title">Produktnamn: </FormLabel>
+                <Field id="title" name="title" as={Input} bg="white" />
+              </FormControl>
+              <FormControl>
+                <FormLabel htmlFor="description">Beskrivning: </FormLabel>
+                <Field
+                  id="description"
+                  name="description"
+                  as={Input}
+                  bg="white"
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel htmlFor="price">Pris: </FormLabel>
+                <Field id="price" name="price" as={Input} bg="white" />
+              </FormControl>
+              <FormControl>
+                <FormLabel htmlFor="image">Bild</FormLabel>
+                <Field id="image" name="image">
+                  {({ form, field }: { form: any; field: any }) => (
+                    <Input
+                      id="image"
+                      name="image"
+                      type="file"
+                      onChange={(event: any) =>
+                        form.setFieldValue(field.name, event.target.files[0])
+                      }
+                    />
+                  )}
+                </Field>
+              </FormControl>
+              <Button
+                mt={4}
+                colorScheme="yellow"
+                isLoading={isSubmitting}
+                type="submit"
+              >
+                Spara
+              </Button>
+            </Box>
+          </Center>
         </Form>
       )}
     </Formik>
