@@ -36,22 +36,6 @@ function ProductForm({ product }: ProductFormProps) {
     image: product?.image || "",
   };
 
-   const formik = useFormik({ 
-    initialValues: { 
-      title: "", 
-      description: "", 
-      price: "", 
-      image: "", 
-    }, 
-
-    validationSchema: ProductSchema, 
-    onSubmit: (values) => { 
-
-    }, 
-  }); 
-
-  const onSubmit = (values: any, actions: any) => {
-    // Hantera när Spara klickas
   };
 
   return (

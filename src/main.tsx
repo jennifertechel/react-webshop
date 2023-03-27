@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+import AddProduct from "./pages/AddProduct";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
 import Edit from "./pages/Edit";
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="order" element={<OrderConfirmation />} />
       <Route path="admin" element={<Admin />} />
       <Route path="edit" element={<Edit />} />
+      <Route path="add-product" element={<AddProduct />} />
     </Route>
   )
 );
