@@ -33,6 +33,7 @@ function Admin() {
         zIndex="1"
       >
         <Button
+          data-cy="admin-add-product"
           border="1px"
           padding="4px"
           color="#c2a77b"
