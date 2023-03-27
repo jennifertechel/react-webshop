@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  Center,
   Flex,
   Heading,
   Icon,
@@ -11,102 +12,117 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import AlertDialogDelete from "../components/AlertDialog";
-import { Currency } from "../components/Currency";
 import { useProducts } from "../context/productContext";
+import AlertDialogDelete from "./AlertDialog";
 
 function AdminCard() {
   const { products, deleteProduct } = useProducts();
   return (
-    <Card
-      direction={{ base: "column", sm: "row" }}
-      overflow="hidden"
-      size="sm"
-      bg="brand.100"
-      w="80%"
-      variant="unstyled"
-      my={2}
-      borderBottom="1px"
-      borderColor="blackAlpha.200"
-      pb={4}
-    >
-      <Box>
-        <Flex
-          justifyContent="space-between"
-          alignItems="center"
-          h="200px"
-          color="black"
-          fontSize="2xl"
-          px="4"
-          position="fixed"
-          top="0"
-          bg="brand.100"
-          w="100%"
-          zIndex="1"
-        >
+    <Center>
+      <Box w="50%">
+        <Flex justifyContent="space-between" alignItems="center" mb={4}>
+          <Heading as="h5" size="sm">
+            Alla produkter
+          </Heading>
           <Button
             data-cy="admin-add-product"
-            border="1px"
-            padding="4px"
-            color="#c2a77b"
-            variant="link"
-            ml="auto"
-            mt="50px"
+            colorScheme="yellow"
+            bg="base.100"
+            borderColor="yellow.400"
+            color="black"
+            borderRadius="none"
+            borderWidth="1.5px"
+            variant="solid"
+            size="sm"
+            w="13rem"
+            h="3rem"
+            _hover={{ bg: "orange.100" }}
           >
             Lägg till ny produkt
           </Button>
         </Flex>
-
-        <Box mt="100px">
+        <Stack spacing={6} w="100%">
           {products.map((product) => (
             <Card
               data-cy="product"
               key={product.id}
-              variant="outline"
+              direction={{ base: "column", sm: "row" }}
               overflow="hidden"
               bg="brand.100"
+              variant="unstyled"
+              my={2}
+              borderBottom="1px"
+              borderColor="blackAlpha.200"
+              pb={4}
+              borderRadius="0"
             >
-              <Flex>
+              <Flex direction={{ base: "column", md: "row" }} flex="1">
                 <Image
                   objectFit="cover"
-                  maxH="300px"
-                  maxW="300px"
+                  maxW={{ base: "100%", md: "200px" }}
+                  w="auto"
                   src={product.image}
                   alt={product.title}
-                  style={{ margin: "auto" }}
                 />
 
-                <Flex direction="column" justify="center" ml="4">
-                  <Heading data-cy="product-title" size="md">
-                    {product.title}
-                  </Heading>
-                  <Text>{product.description}</Text>
-                  <Text data-cy="product-id">{product.id}</Text>
-
-                  <Text data-cy="product-price" fontWeight="bold" fontSize="sm">
-                    {Currency(product.price)}
-                  </Text>
-                  <Flex justifyContent="space-between" alignItems="center">
-                    <Text fontWeight="bold" fontSize="lg"></Text>
-                    <AlertDialogDelete productId={product.id} />
-
-                    <Stack direction="row" spacing="5">
-                      <Link to="/edit">
-                        <Icon
-                          data-cy="admin-edit-product"
-                          boxSize={7}
-                          as={AiOutlineEdit}
-                        />
-                      </Link>
-                    </Stack>
+                <Stack
+                  p={4}
+                  justifyContent="space-between"
+                  alignItems="stretch"
+                  flex="1"
+                >
+                  <Flex direction="row">
+                    <Box>
+                      <Heading data-cy="product-title" as="h3" size="md" mb={2}>
+                        {product.title}
+                      </Heading>
+                      <Flex>
+                        <Text>Id: </Text>
+                        <Text data-cy="product-id" mb={4}>
+                          {product.id}
+                        </Text>
+                      </Flex>
+                      <Flex>
+                        <Text>Höjd: </Text>
+                        <Text mb={4}>{product.height}</Text>
+                      </Flex>
+                      <Flex>
+                        <Text>Pris: </Text>
+                        <Text data-cy="product-price" mb={4}>
+                          {product.price}
+                        </Text>
+                      </Flex>
+                    </Box>
                   </Flex>
-                </Flex>
+                </Stack>
+                <Box>
+                  <Flex
+                    justifyContent="space-evenly"
+                    alignItems="flex-end"
+                    direction={{ base: "row", md: "column" }}
+                  >
+                    <Link to="/edit">
+                      <Icon
+                        bg="base.100"
+                        borderColor="yellow.400"
+                        color="black"
+                        borderRadius="none"
+                        borderWidth="2px"
+                        data-cy="admin-edit-product"
+                        boxSize={9}
+                        as={AiOutlineEdit}
+                        _hover={{ bg: "orange.100" }}
+                      />
+                    </Link>
+                    <AlertDialogDelete productId={product.id} />
+                  </Flex>
+                </Box>
               </Flex>
             </Card>
           ))}
-        </Box>
+        </Stack>
       </Box>
-    </Card>
+    </Center>
   );
 }
 
