@@ -26,7 +26,7 @@ function ProductForm({ product }: ProductFormProps) {
     image: product?.image || "",
   };
 
-  const onSubmit = (values: any, actions: any) => {
+  const onSubmit = (values: any) => {
     // Hantera när Spara klickas
   };
 
