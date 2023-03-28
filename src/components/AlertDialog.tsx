@@ -34,10 +34,8 @@ function AlertDialogDelete({ productId }: Props) {
         data-cy="admin-remove-product"
         onClick={onOpen}
         bg="base.100"
-        borderColor="yellow.400"
         color="black"
         borderRadius="none"
-        borderWidth="2px"
         boxSize={9}
         as={AiOutlineDelete}
         _hover={{ bg: "orange.100" }}

@@ -20,7 +20,12 @@ function AdminCard() {
   return (
     <Center>
       <Box w="50%">
-        <Flex justifyContent="space-between" alignItems="center" mb={4}>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          mb={4}
+          borderBottom="1px solid black"
+        >
           <Heading as="h5" size="sm">
             Alla produkter
           </Heading>
@@ -35,6 +40,7 @@ function AdminCard() {
             variant="solid"
             size="sm"
             w="13rem"
+            mb={5}
             h="3rem"
             _hover={{ bg: "orange.100" }}
           >
@@ -95,7 +101,7 @@ function AdminCard() {
                     </Box>
                   </Flex>
                 </Stack>
-                <Box>
+                <Box mt="5">
                   <Flex
                     justifyContent="space-evenly"
                     alignItems="flex-end"
@@ -104,10 +110,8 @@ function AdminCard() {
                     <Link to="/edit">
                       <Icon
                         bg="base.100"
-                        borderColor="yellow.400"
                         color="black"
                         borderRadius="none"
-                        borderWidth="2px"
                         data-cy="admin-edit-product"
                         boxSize={9}
                         as={AiOutlineEdit}

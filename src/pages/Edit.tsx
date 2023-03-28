@@ -1,10 +1,10 @@
-import { Box, Center, Flex, Heading, Img } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading } from "@chakra-ui/react";
 import ProductForm from "../components/ProductForm";
 import { useProducts } from "../context/productContext";
 
 function Edit() {
   const { products } = useProducts();
-  const productImage = products[0].image;
+  // const productImage = products[0].image;
   return (
     <Center>
       <Box>
@@ -14,7 +14,7 @@ function Edit() {
           </Heading>
         </Center>
         <Flex>
-          <Img src={productImage} />
+          {/* <Img src={productImage} /> */}
           <ProductForm
             onSubmit={function (values: any, actions: any): void {
               throw new Error("Function not implemented.");
