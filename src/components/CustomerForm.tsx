@@ -22,11 +22,19 @@ const CustomerSchema = Yup.object().shape({
   address: Yup.string()
     .min(4, "Adressen måste innehålla minst fyra tecken")
     .required("Vänligen ange din fullständiga adress"),
+  zipcode: Yup.string()
+    .matches(/^[0-9]+$/, "Vänligen ange ett giltigt postnummer")
+    .min(5, "Vänligen ange ett giltigt postnummer")
+    .max(5, "Vänligen ange ett giltigt postnummer")
+    .required("Vänligen ange ett postnummer"),
+  city: Yup.string()
+    .min(2, "Vänligen ange en stad")
+    .required("Vänligen ange en stad"),
   email: Yup.string()
-    .email("Invalid email")
-    .required("Vänligen ange en giltlig emailadress"),
+    .email("Vänligen ange en giltig mejladress")
+    .required("Vänligen ange din mejladress"),
   phone: Yup.string()
-    .matches(/^[0-9()+-]*$/, "Invalid phone")
+    .matches(/^[0-9()+-]*$/, "Vänligen ange ett giltigt telefonnummer")
     .required("Vänligen ange ditt telefonnummer"),
 });
 
@@ -52,7 +60,7 @@ function CustomerForm() {
   });
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
+    <Form onSubmit={formik.handleSubmit} data-cy='customer-form'>
       <Center>
         <Heading as='h3' size='md' p='4' textTransform='uppercase'>
           Dina uppgifter
@@ -70,7 +78,7 @@ function CustomerForm() {
             borderColor='yellow.400'
           >
             <Stack m='30px' spacing={6}>
-              <FormControl data-cy='customer-form'>
+              <FormControl>
                 <FormLabel>Namn:</FormLabel>
                 <Input
                   data-cy='customer-name'
@@ -124,7 +132,9 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.zipcode && formik.errors.zipcode && (
-                  <Text color='red'>{formik.errors.zipcode}</Text>
+                  <Text data-cy='customer-zipcode-error' color='red'>
+                    {formik.errors.zipcode}
+                  </Text>
                 )}
               </FormControl>
 
@@ -142,7 +152,9 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.city && formik.errors.city && (
-                  <Text color='red'>{formik.errors.city}</Text>
+                  <Text data-cy='customer-city-error' color='red'>
+                    {formik.errors.city}
+                  </Text>
                 )}
               </FormControl>
 
