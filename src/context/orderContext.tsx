@@ -1,13 +1,13 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { CartItem } from "../../data";
 import { CustomerValues } from "../components/CustomerForm";
-import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import { useCart } from "./cartContext";
 
 interface Order {
   id: string;
   cart: CartItem[];
   formData: CustomerValues;
+  totalPrice: number;
 }
 
 interface OrderContextProps {
@@ -25,8 +25,11 @@ export default function OrderProvider(props: PropsWithChildren) {
 
   const handleOrderSubmit = (formData: CustomerValues) => {
     const orderId = Date.now().toString();
-
-    const order: Order = { id: orderId, cart: cart, formData };
+    const totalPrice = cart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    const order: Order = { id: orderId, cart: cart, formData, totalPrice };
 
     setOrder(order);
     clearCart();
