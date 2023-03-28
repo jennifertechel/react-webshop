@@ -33,8 +33,12 @@ function AlertDialogDelete({ productId }: Props) {
       <Icon
         data-cy="admin-remove-product"
         onClick={onOpen}
-        boxSize={7}
+        bg="base.100"
+        color="black"
+        borderRadius="none"
+        boxSize={9}
         as={AiOutlineDelete}
+        _hover={{ bg: "orange.100" }}
       />
 
       <AlertDialog

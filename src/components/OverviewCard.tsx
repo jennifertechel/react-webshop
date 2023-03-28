@@ -26,11 +26,11 @@ function OverviewCard({ product }: { product: Product }) {
 
   return (
     <Card
-      data-cy='product'
-      variant='unstyled'
-      maxW='xs'
-      align='center'
-      bg='brand.100'
+      data-cy="product"
+      variant="unstyled"
+      maxW="xs"
+      align="center"
+      bg="brand.100"
       p={4}
       _hover={{
         boxShadow: "2xl",
@@ -40,34 +40,35 @@ function OverviewCard({ product }: { product: Product }) {
         <Link to={"/product/" + product.id} key={product.id}>
           <Image src={product.image} alt={product.title} />
         </Link>
-        <Flex justifyContent='space-between' pt={3}>
+        <Flex justifyContent="space-between" pt={3}>
           <Box>
-            <Text data-cy='product-title'>{product.title}</Text>
-            <Text data-cy='product-price'>
+            <Text data-cy="product-title">{product.title}</Text>
+            <Text data-cy="product-price">
               {product.price}
-              <Text as='span' fontSize='xs'>
+              <Text as="span" fontSize="xs">
                 &nbsp;SEK
               </Text>
             </Text>
           </Box>
 
           <Button
-            data-cy='product-buy-button'
-            variant='outline'
-            colorScheme='orange'
-            border='none'
-            color='black'
-            borderRadius='none'
+            data-cy="product-buy-button"
+            variant="outline"
+            colorScheme="orange"
+            border="none"
+            color="black"
+            borderRadius="none"
             onClick={() => {
               handleAddToCart(product);
               toast({
-                position: "bottom",
+                position: "bottom-right",
+                duration: 2000,
                 render: () => (
                   <Box
-                    data-cy='added-to-cart-toast'
-                    color='green.500'
+                    data-cy="added-to-cart-toast"
+                    color="green.500"
                     p={3}
-                    bg='white'
+                    bg="white"
                   >
                     {product.title} har lagts till i varukorgen!
                   </Box>
