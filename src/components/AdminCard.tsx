@@ -25,8 +25,9 @@ function AdminCard() {
           alignItems="center"
           mb={4}
           borderBottom="1px solid black"
+          direction={{ base: "column", md: "row" }}
         >
-          <Heading as="h5" size="sm">
+          <Heading as="h5" size="sm" mb={{ base: 5 }}>
             Alla produkter
           </Heading>
           <Link to="/add-product">
@@ -79,7 +80,10 @@ function AdminCard() {
                   alignItems="stretch"
                   flex="1"
                 >
-                  <Flex direction="row">
+                  <Flex
+                    direction="row"
+                    justifyContent={{ base: "center", md: "space-between" }}
+                  >
                     <Box>
                       <Heading data-cy="product-title" as="h3" size="md" mb={2}>
                         {product.title}
@@ -105,7 +109,7 @@ function AdminCard() {
                 </Stack>
                 <Box mt="5">
                   <Flex
-                    justifyContent="space-evenly"
+                    justifyContent={{ base: "center", md: "space-between" }}
                     alignItems="flex-end"
                     direction={{ base: "row", md: "column" }}
                   >
@@ -117,7 +121,8 @@ function AdminCard() {
                         data-cy="admin-edit-product"
                         boxSize={9}
                         as={AiOutlineEdit}
-                        mb={7}
+                        mb={{ base: -1, md: 7 }}
+                        mr={{ base: 10, md: 0 }}
                         _hover={{ bg: "orange.100" }}
                       />
                     </Link>
