@@ -23,9 +23,11 @@ const router = createBrowserRouter(
       <Route path='product/:id' element={<ProductPage />} />
       <Route path='checkout' element={<Checkout />} />
       <Route path='confirmation' element={<OrderConfirmation />} />
-      <Route path='admin' element={<Admin />} />
-      <Route path='edit' element={<Edit />} />
-      <Route path='add-product' element={<AddProduct />} />
+      <Route path='admin'>
+        <Route index element={<Admin />} />
+        <Route path='product/new' element={<AddProduct />} />
+        <Route path='product/:id' element={<Edit />} />
+      </Route>
     </Route>
   )
 );
