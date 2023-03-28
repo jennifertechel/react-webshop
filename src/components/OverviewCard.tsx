@@ -13,7 +13,6 @@ import { IoMdAdd } from "react-icons/io";
 import { Link } from "react-router-dom";
 import type { Product } from "../../data";
 import { useCart } from "../context/cartContext";
-import { useProducts } from "../context/productContext";
 
 function OverviewCard({ product }: { product: Product }) {
   const { addToCart } = useCart();

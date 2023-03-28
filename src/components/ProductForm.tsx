@@ -12,7 +12,6 @@ import {
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Product } from "../../data";
-import { useProducts } from "../context/productContext";
 
 const ProductSchema = Yup.object().shape({
   title: Yup.string().required("Vänligen ange ett produktnamn"),

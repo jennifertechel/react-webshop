@@ -8,7 +8,6 @@ import {
   Link,
   Spacer,
   Text,
-  useBreakpointValue,
 } from "@chakra-ui/react";
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
