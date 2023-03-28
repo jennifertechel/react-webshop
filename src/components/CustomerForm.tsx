@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
-import { Form, Link, useNavigate } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useOrder } from "../context/orderContext";
 
