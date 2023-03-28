@@ -1,21 +1,20 @@
 import { Box, Center, Heading } from "@chakra-ui/react";
 
 import ProductForm from "../components/ProductForm";
+import { useProducts } from "../context/productContext";
 
 function AddProduct() {
-  const handleSubmit = (values: any, actions: any) => {
-    // Hur vi ska hantera Spara ska läggas här
-  };
+  const { addNewProduct } = useProducts();
 
   return (
     <Center>
       <Box>
         <Center>
-          <Heading as="h2" size="lg" mt={4}>
+          <Heading as='h2' size='lg' mt={4}>
             Kul med en ny produktmedlem! 🥰
           </Heading>
         </Center>
-        <ProductForm onSubmit={handleSubmit} />
+        <ProductForm onSubmit={addNewProduct} />
       </Box>
     </Center>
   );
