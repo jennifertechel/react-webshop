@@ -47,7 +47,7 @@ function CustomerForm() {
     validationSchema: CustomerSchema,
     onSubmit: (values) => {
       handleOrderSubmit(values);
-      navigate("/order");
+      navigate("/confirmation");
     },
   });
 
