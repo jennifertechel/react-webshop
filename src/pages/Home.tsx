@@ -43,11 +43,7 @@ function Home() {
           py={8}
         >
           {products.map((product) => (
-            <OverviewCard
-              data-cy='product'
-              key={product.id}
-              product={product}
-            />
+            <OverviewCard key={product.id} product={product} />
           ))}
         </Grid>
       </Center>

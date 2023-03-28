@@ -7,6 +7,7 @@ interface CartContextProps {
   addToCart: (item: Product) => void;
   removeFromCart: (itemId: string) => void;
   updateCartItemQuantity: (itemId: string, newQuantity: number) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext<CartContextProps>(null as any);
@@ -50,9 +51,19 @@ export default function CartProvider(props: PropsWithChildren) {
     }
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateCartItemQuantity }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateCartItemQuantity,
+        clearCart,
+      }}
     >
       {props.children}
     </CartContext.Provider>
