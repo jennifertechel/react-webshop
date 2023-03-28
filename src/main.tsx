@@ -8,8 +8,10 @@ import {
 } from "react-router-dom";
 import App from "./App";
 import "./index.css";
+import AddProduct from "./pages/AddProduct";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
+import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import ProductPage from "./pages/Product";
@@ -22,6 +24,8 @@ const router = createBrowserRouter(
       <Route path='checkout' element={<Checkout />} />
       <Route path='confirmation' element={<OrderConfirmation />} />
       <Route path='admin' element={<Admin />} />
+      <Route path='edit' element={<Edit />} />
+      <Route path='add-product' element={<AddProduct />} />
     </Route>
   )
 );
