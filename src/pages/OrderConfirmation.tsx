@@ -1,6 +1,5 @@
 import { Box, Center, Heading, Text } from "@chakra-ui/react";
 import OrderCard from "../components/OrderCard";
-import { useCart } from "../context/cartContext";
 import { useOrder } from "../context/orderContext";
 
 function OrderConfirmation() {
@@ -28,10 +27,24 @@ function OrderConfirmation() {
         </Box>
       ))}
       <Box w='40%' textAlign='right'>
-        <Text fontSize='1.1rem'>Totalt: 1000 SEK</Text>
+        <Text fontSize='1.1rem'>Totalt: {order?.totalPrice} SEK</Text>
       </Box>
-      <Box pt={4}>
-        <Text>Dina uppgifter</Text>
+      <Box
+        py={4}
+        px={8}
+        my={8}
+        w='40%'
+        textAlign='left'
+        border='1px solid'
+        borderColor='yellow.400'
+      >
+        <Text fontSize='1rem' fontWeight={800} textTransform='uppercase' pb={4}>
+          Dina uppgifter
+        </Text>
+        <Text>{order?.formData.name}</Text>
+        <Text>{order?.formData.address}</Text>
+        <Text pt={2}>{order?.formData.email}</Text>
+        <Text>{order?.formData.phone}</Text>
       </Box>
     </Center>
   );
