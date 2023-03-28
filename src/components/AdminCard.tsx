@@ -115,6 +115,7 @@ function AdminCard() {
                         data-cy="admin-edit-product"
                         boxSize={9}
                         as={AiOutlineEdit}
+                        mb={7}
                         _hover={{ bg: "orange.100" }}
                       />
                     </Link>
