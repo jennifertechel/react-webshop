@@ -41,6 +41,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
 
   return (
     <Card
+      data-cy='cart-item'
       direction={{ base: "column", sm: "row" }}
       overflow='hidden'
       size='sm'
@@ -65,7 +66,9 @@ function CheckoutCard({ product }: { product: CartItem }) {
         <Flex justifyContent='space-between' h='100%'>
           <Flex pl={4} justifyContent='space-between' flexDirection='column'>
             <Box>
-              <Text fontSize='xl'>{product.title} vas</Text>
+              <Text fontSize='xl' data-cy='product-title'>
+                {product.title}
+              </Text>
               <Text fontSize='sm'>
                 Höjd: &nbsp;
                 {product.height}
@@ -82,15 +85,19 @@ function CheckoutCard({ product }: { product: CartItem }) {
               <Button
                 bg='none'
                 borderRadius='none'
+                data-cy='decrease-quantity-button'
                 onClick={decrementQuantity}
                 _hover={{ bg: "none", transform: "scale(1.2)" }}
               >
                 -
               </Button>
-              <Text px={3}>{product.quantity}</Text>
+              <Text px={3} data-cy='product-quantity'>
+                {product.quantity}
+              </Text>
               <Button
                 bg='none'
                 borderRadius='none'
+                data-cy='increase-quantity-button'
                 onClick={incrementQuantity}
                 _hover={{ bg: "none", transform: "scale(1.2)" }}
               >
@@ -107,8 +114,8 @@ function CheckoutCard({ product }: { product: CartItem }) {
             >
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
-            <Text>
-              á {product.price}
+            <Text data-cy='product-price'>
+              {product.price}
               <Text as='span' fontSize='xs'>
                 &nbsp;SEK
               </Text>

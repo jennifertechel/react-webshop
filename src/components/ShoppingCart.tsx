@@ -22,7 +22,7 @@ function ShoppingCart() {
       <Box width='100%'>
         {cart.map((item) => (
           <Center>
-            <CheckoutCard data-cy='product' key={item.id} product={item} />
+            <CheckoutCard key={item.id} product={item} />
           </Center>
         ))}
       </Box>

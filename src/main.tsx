@@ -18,14 +18,14 @@ import ProductPage from "./pages/Product";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path='/' element={<App />}>
       <Route index element={<Home />} />
-      <Route path="product/:id" element={<ProductPage />} />
-      <Route path="checkout" element={<Checkout />} />
-      <Route path="order" element={<OrderConfirmation />} />
-      <Route path="admin" element={<Admin />} />
-      <Route path="edit" element={<Edit />} />
-      <Route path="add-product" element={<AddProduct />} />
+      <Route path='product/:id' element={<ProductPage />} />
+      <Route path='checkout' element={<Checkout />} />
+      <Route path='confirmation' element={<OrderConfirmation />} />
+      <Route path='admin' element={<Admin />} />
+      <Route path='edit' element={<Edit />} />
+      <Route path='add-product' element={<AddProduct />} />
     </Route>
   )
 );
