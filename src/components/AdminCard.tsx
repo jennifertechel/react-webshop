@@ -29,23 +29,25 @@ function AdminCard() {
           <Heading as="h5" size="sm">
             Alla produkter
           </Heading>
-          <Button
-            data-cy="admin-add-product"
-            colorScheme="yellow"
-            bg="base.100"
-            borderColor="yellow.400"
-            color="black"
-            borderRadius="none"
-            borderWidth="1.5px"
-            variant="solid"
-            size="sm"
-            w="13rem"
-            mb={5}
-            h="3rem"
-            _hover={{ bg: "orange.100" }}
-          >
-            Lägg till ny produkt
-          </Button>
+          <Link to="/add-product">
+            <Button
+              data-cy="admin-add-product"
+              colorScheme="yellow"
+              bg="base.100"
+              borderColor="yellow.400"
+              color="black"
+              borderRadius="none"
+              borderWidth="1.5px"
+              variant="solid"
+              size="sm"
+              w="13rem"
+              mb={5}
+              h="3rem"
+              _hover={{ bg: "orange.100" }}
+            >
+              Lägg till ny produkt
+            </Button>
+          </Link>
         </Flex>
         <Stack spacing={6} w="100%">
           {products.map((product) => (
