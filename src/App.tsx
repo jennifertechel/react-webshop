@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import CartProvider from "./context/cartContext";
 import OrderProvider from "./context/orderContext";
 import ProductProvider from "./context/productContext";
+import "@fontsource/montserrat/400.css";
 
 const theme = extendTheme({
   colors: {
@@ -13,7 +14,7 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    body: "adamina",
+    body: `'Montserrat', sans serif`,
     heading: "adamina",
   },
 });
