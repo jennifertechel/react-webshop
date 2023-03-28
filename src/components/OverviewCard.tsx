@@ -17,7 +17,6 @@ import { useProducts } from "../context/productContext";
 
 function OverviewCard({ product }: { product: Product }) {
   const { addToCart } = useCart();
-  const { products } = useProducts();
   const toast = useToast();
 
   const handleAddToCart = (item: Product) => {
