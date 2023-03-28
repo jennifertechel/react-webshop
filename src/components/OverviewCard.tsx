@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   Flex,
+  Heading,
   Icon,
   Image,
   Text,
@@ -40,7 +41,9 @@ function OverviewCard({ product }: { product: Product }) {
         </Link>
         <Flex justifyContent='space-between' pt={3}>
           <Box>
-            <Text data-cy='product-title'>{product.title}</Text>
+            <Heading fontSize='md' fontWeight='normal' data-cy='product-title'>
+              {product.title}
+            </Heading>
             <Text data-cy='product-price'>
               {product.price}
               <Text as='span' fontSize='xs'>
