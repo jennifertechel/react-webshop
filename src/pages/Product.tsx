@@ -10,10 +10,10 @@ export function ProductPage() {
   if (!productVase) return <p>product not found</p>;
 
   return (
-    <div>
+    <>
       <Breadcrumbs title={productVase.title} />
       <ProductCard product={productVase} />
-    </div>
+    </>
   );
 }
 

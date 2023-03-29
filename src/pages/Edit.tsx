@@ -1,26 +1,22 @@
-import { Box, Center, Flex, Heading } from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 import ProductForm from "../components/ProductForm";
 import { useProducts } from "../context/productContext";
 
 function Edit() {
   const { products } = useProducts();
-  // const productImage = products[0].image;
+  const params = useParams();
+  const editProduct = products.find((product) => product.id === params.id);
+
   return (
     <Center>
       <Box>
         <Center>
-          <Heading as="h2" size="lg" mt={4}>
+          <Heading as='h2' size='lg' mt={4}>
             Redigera produkt
           </Heading>
         </Center>
-        <Flex>
-          {/* <Img src={productImage} /> */}
-          <ProductForm
-            onSubmit={function (values: any, actions: any): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
-        </Flex>
+        <ProductForm product={editProduct} onSubmit={() => {}} />
       </Box>
     </Center>
   );

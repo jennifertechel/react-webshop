@@ -26,9 +26,11 @@ function Home() {
         </Box>
       </Flex>
 
-      <Box py={6}>
+      <Box pt={10}>
         <Center>
-          <Text fontSize='2xl'>NYHETER</Text>
+          <Heading fontSize='2xl' fontWeight='normal'>
+            NYHETER
+          </Heading>
         </Center>
       </Box>
       <Center>
