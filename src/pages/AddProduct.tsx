@@ -7,8 +7,7 @@ function AddProduct() {
   const { addNewProduct } = useProducts();
 
   return (
-    // Ändra height till mer responsivt, ex 100vh - footer och header height
-    <Box minH='70vh'>
+    <Box>
       <Center>
         <Heading size='md' py={14} textTransform='uppercase'>
           Lägg till ny produkt
