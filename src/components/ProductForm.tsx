@@ -6,6 +6,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -47,13 +48,12 @@ function ProductForm({ product, onSubmit }: Props) {
             flexDirection='column'
             justifyContent='center'
             alignItems='center'
-            border='1px'
-            borderColor='yellow.400'
           >
             <Stack spacing={6}>
               <FormControl>
-                <FormLabel>Namn:</FormLabel>
+                <FormLabel>Titel:</FormLabel>
                 <Input
+                  data-cy='product-title'
                   bg='whiteAlpha.900'
                   size='md'
                   type='text'
@@ -64,7 +64,7 @@ function ProductForm({ product, onSubmit }: Props) {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.title && formik.errors.title && (
-                  <Text color='red' data-cy='product-title-error'>
+                  <Text color='red' fontSize='xs' data-cy='product-title-error'>
                     {formik.errors.title}
                   </Text>
                 )}
@@ -73,18 +73,42 @@ function ProductForm({ product, onSubmit }: Props) {
               <FormControl>
                 <FormLabel>Beskrivning:</FormLabel>
                 <Input
+                  data-cy='product-description'
                   bg='whiteAlpha.900'
                   size='md'
                   type='text'
-                  name='address'
-                  id='address'
+                  name='description'
+                  id='description'
                   value={formik.values.description}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.description && formik.errors.description && (
-                  <Text data-cy='customer-description-error' color='red'>
+                  <Text
+                    data-cy='customer-description-error'
+                    fontSize='xs'
+                    color='red'
+                  >
                     {formik.errors.description}
+                  </Text>
+                )}
+              </FormControl>
+
+              <FormControl>
+                <FormLabel>Höjd:</FormLabel>
+                <Input
+                  bg='whiteAlpha.900'
+                  size='md'
+                  type='text'
+                  name='height'
+                  id='height'
+                  value={formik.values.height}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.height && formik.errors.height && (
+                  <Text color='red' fontSize='xs'>
+                    {formik.errors.height}
                   </Text>
                 )}
               </FormControl>
@@ -92,18 +116,22 @@ function ProductForm({ product, onSubmit }: Props) {
               <FormControl>
                 <FormLabel>Pris:</FormLabel>
                 <Input
-                  data-cy='customer-zipcode'
+                  data-cy='product-price'
                   bg='whiteAlpha.900'
                   size='md'
                   type='text'
-                  name='zipcode'
-                  id='zipcode'
+                  name='price'
+                  id='price'
                   value={formik.values.price}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.price && formik.errors.price && (
-                  <Text data-cy='customer-price-error' color='red'>
+                  <Text
+                    data-cy='customer-price-error'
+                    fontSize='xs'
+                    color='red'
+                  >
                     {formik.errors.price}
                   </Text>
                 )}
@@ -112,45 +140,54 @@ function ProductForm({ product, onSubmit }: Props) {
               <FormControl>
                 <FormLabel>Bild URL:</FormLabel>
                 <Input
-                  data-cy='customer-city'
+                  data-cy='product-image'
                   bg='whiteAlpha.900'
                   size='md'
                   type='text'
-                  name='city'
-                  id='city'
+                  name='image'
+                  id='image'
                   value={formik.values.image}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.image && formik.errors.image && (
-                  <Text data-cy='customer-image-error' color='red'>
+                  <Text
+                    data-cy='customer-image-error'
+                    fontSize='xs'
+                    color='red'
+                  >
                     {formik.errors.image}
                   </Text>
                 )}
               </FormControl>
 
-              <FormControl>
-                <FormLabel>Höjd:</FormLabel>
-                <Input
-                  data-cy='customer-email'
-                  bg='whiteAlpha.900'
-                  size='md'
-                  type='text'
-                  name='email'
-                  id='email'
-                  value={formik.values.height}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.height && formik.errors.height && (
-                  <Text color='red'>{formik.errors.height}</Text>
-                )}
-              </FormControl>
-
               <Center>
-                <Box pt='1.5rem'>
-                  <Button colorScheme='yellow' size='md' type='submit'>
+                <Box py={4}>
+                  <Button
+                    variant='outline'
+                    borderColor='yellow.400'
+                    color='black'
+                    borderRadius='none'
+                    borderWidth='1px'
+                    py={4}
+                    _hover={{ bg: "yellow.400" }}
+                    m={{ base: "10px", sm: "2px" }}
+                    type='submit'
+                  >
                     Spara
+                  </Button>
+
+                  <Button
+                    variant='outline'
+                    borderColor='yellow.400'
+                    color='black'
+                    borderRadius='none'
+                    borderWidth='1px'
+                    py={4}
+                    _hover={{ bg: "yellow.400" }}
+                    m={{ base: "10px", sm: "2px" }}
+                  >
+                    Avbryt
                   </Button>
                 </Box>
               </Center>

@@ -7,16 +7,14 @@ function AddProduct() {
   const { addNewProduct } = useProducts();
 
   return (
-    <Center>
-      <Box>
-        <Center>
-          <Heading as='h2' size='lg' mt={4}>
-            Kul med en ny produktmedlem! 🥰
-          </Heading>
-        </Center>
-        <ProductForm onSubmit={addNewProduct} />
-      </Box>
-    </Center>
+    <Box>
+      <Center>
+        <Heading size='md' py={14} textTransform='uppercase'>
+          Lägg till ny produkt
+        </Heading>
+      </Center>
+      <ProductForm onSubmit={addNewProduct} />
+    </Box>
   );
 }
 
