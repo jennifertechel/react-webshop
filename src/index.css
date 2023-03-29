@@ -3,6 +3,10 @@
   src: url(/fonts/Adamina-Regular.ttf);
 }
 
+@font-face {
+  font-family: "losta-masta";
+  src: url(/fonts/LostraMasta-ExtraBold.ttf);
+}
 body {
   margin: 0;
 }
