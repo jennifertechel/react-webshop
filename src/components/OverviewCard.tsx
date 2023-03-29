@@ -37,7 +37,13 @@ function OverviewCard({ product }: { product: Product }) {
     >
       <CardBody>
         <Link to={"/product/" + product.id} key={product.id}>
-          <Image src={product.image} alt={product.title} />
+          <Image
+            maxW='95%'
+            maxH='100%'
+            m={2}
+            src={product.image}
+            alt={product.title}
+          />
         </Link>
         <Flex justifyContent='space-between' pt={3}>
           <Box>
