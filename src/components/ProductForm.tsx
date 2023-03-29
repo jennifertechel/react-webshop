@@ -7,7 +7,7 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +17,9 @@ import { Product } from "../../data";
 const ProductSchema = Yup.object().shape({
   title: Yup.string().required("Vänligen ange ett produktnamn"),
   description: Yup.string().required("Vänligen ange en beskrivning"),
-  price: Yup.number().required("Vänligen ange ett pris"),
+  price: Yup.number()
+    .positive("Ange ett pris över 0")
+    .required("Vänligen ange ett pris"),
   image: Yup.string().required("Vänligen lägg till en bild"),
 });
 
@@ -41,8 +43,8 @@ function ProductForm({ product, onSubmit }: Props) {
     onSubmit: (values) => {
       onSubmit(values);
       navigate("/admin");
-    }
-      });
+    },
+  });
 
   return (
     <form onSubmit={formik.handleSubmit} data-cy='product-form'>
@@ -113,7 +115,7 @@ function ProductForm({ product, onSubmit }: Props) {
                 <InputRightAddon bg='brand.100' children='SEK' />
               </InputGroup>
               {formik.touched.price && formik.errors.price && (
-                <Text data-cy='customer-price-error' fontSize='xs' color='red'>
+                <Text data-cy='product-price-error' fontSize='xs' color='red'>
                   {formik.errors.price}
                 </Text>
               )}
@@ -135,7 +137,7 @@ function ProductForm({ product, onSubmit }: Props) {
               />
 
               {formik.touched.image && formik.errors.image && (
-                <Text data-cy='customer-image-error' fontSize='xs' color='red'>
+                <Text data-cy='product-image-error' fontSize='xs' color='red'>
                   {formik.errors.image}
                 </Text>
               )}
@@ -158,7 +160,7 @@ function ProductForm({ product, onSubmit }: Props) {
             />
             {formik.touched.description && formik.errors.description && (
               <Text
-                data-cy='customer-description-error'
+                data-cy='product-description-error'
                 fontSize='xs'
                 color='red'
               >
