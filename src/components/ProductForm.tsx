@@ -1,18 +1,16 @@
 import {
   Box,
   Button,
-  Center,
   Flex,
   FormControl,
   FormLabel,
   Input,
   InputGroup,
   InputRightAddon,
-  Spacer,
-  Stack,
   Text,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { Product } from "../../data";
 
@@ -183,18 +181,19 @@ function ProductForm({ product, onSubmit }: Props) {
             >
               Spara
             </Button>
-
-            <Button
-              variant='outline'
-              borderColor='yellow.400'
-              color='black'
-              borderRadius='none'
-              borderWidth='1px'
-              w={28}
-              _hover={{ bg: "orange.100" }}
-            >
-              Avbryt
-            </Button>
+            <Link to='/admin'>
+              <Button
+                variant='outline'
+                borderColor='yellow.400'
+                color='black'
+                borderRadius='none'
+                borderWidth='1px'
+                w={28}
+                _hover={{ bg: "orange.100" }}
+              >
+                Avbryt
+              </Button>
+            </Link>
           </Flex>
         </Flex>
       </Box>
