@@ -70,6 +70,9 @@ function AdminCard({ product }: { product: Product }) {
                 <Text>Pris:&nbsp;</Text>
                 <Text data-cy='product-price' mb={4}>
                   {product.price}
+                  <Text as='span' fontSize='xs'>
+                    &nbsp;SEK
+                  </Text>
                 </Text>
               </Flex>
             </Box>
@@ -87,11 +90,11 @@ function AdminCard({ product }: { product: Product }) {
                 color='black'
                 borderRadius='none'
                 data-cy='admin-edit-product'
-                boxSize={9}
+                boxSize={8}
                 as={AiOutlineEdit}
                 mb={{ base: -1, md: 7 }}
                 mr={{ base: 10, md: 0 }}
-                _hover={{ bg: "orange.100" }}
+                _hover={{ bg: "none", transform: "scale(1.2)" }}
               />
             </Link>
             <AlertDialogDelete productId={product.id} />
