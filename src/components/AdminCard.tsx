@@ -59,7 +59,12 @@ function AdminCard({ product }: { product: Product }) {
               </Flex>
               <Flex>
                 <Text>Höjd:&nbsp;</Text>
-                <Text mb={4}>{product.height}</Text>
+                <Text mb={4}>
+                  {product.height}
+                  <Text as='span' fontSize='sm'>
+                    &nbsp;cm
+                  </Text>
+                </Text>
               </Flex>
               <Flex>
                 <Text>Pris:&nbsp;</Text>

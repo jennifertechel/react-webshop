@@ -10,7 +10,7 @@ function Home() {
       <Flex
         w='full'
         h='65vh'
-        bgImage='linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url(/public/hero-md.svg)'
+        bgImage='linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.3)), url(/hero-md.svg)'
         bgSize='cover'
         bgPos={{ base: "left", md: "center" }}
         flexDir='column'
