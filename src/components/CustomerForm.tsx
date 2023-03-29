@@ -79,6 +79,7 @@ function CustomerForm() {
                   type='text'
                   name='name'
                   id='name'
+                  autoComplete='name'
                   value={formik.values.name}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -99,6 +100,7 @@ function CustomerForm() {
                   type='text'
                   name='address'
                   id='address'
+                  autoComplete='street-address'
                   value={formik.values.address}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -119,6 +121,7 @@ function CustomerForm() {
                   type='text'
                   name='zipcode'
                   id='zipcode'
+                  autoComplete='postal-code'
                   value={formik.values.zipcode}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -139,6 +142,7 @@ function CustomerForm() {
                   type='text'
                   name='city'
                   id='city'
+                  autoComplete='address-level2'
                   value={formik.values.city}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -159,6 +163,7 @@ function CustomerForm() {
                   type='text'
                   name='email'
                   id='email'
+                  autoComplete='email'
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -179,6 +184,7 @@ function CustomerForm() {
                   type='text'
                   name='phone'
                   id='phone'
+                  autoComplete='tel'
                   value={formik.values.phone}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
