@@ -17,18 +17,13 @@ import { useOrder } from "../context/orderContext";
 
 const CustomerSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Namnet måste innehålla minst två tecken")
+    .min(2, "Namnet måste innehålla minst två bokstäver")
     .required("Vänligen ange ditt namn"),
   address: Yup.string()
-    .min(4, "Adressen måste innehålla minst fyra tecken")
+    .min(4)
     .required("Vänligen ange din fullständiga adress"),
-  zipcode: Yup.string()
-    .min(5, "Vänligen ange ett giltigt postnummer")
-    .max(5, "Vänligen ange ett giltigt postnummer")
-    .required("Vänligen ange ett postnummer"),
-  city: Yup.string()
-    .min(2, "Vänligen ange en stad")
-    .required("Vänligen ange en stad"),
+  zipcode: Yup.string().min(5).max(5).required("Vänligen ange ett postnummer"),
+  city: Yup.string().min(2).required("Vänligen ange en stad"),
   email: Yup.string()
     .email("Vänligen ange en giltig mejladress")
     .required("Vänligen ange din mejladress"),
