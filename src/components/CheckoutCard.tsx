@@ -99,6 +99,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
               </Text>
               <Button
                 bg="none"
+                data-cy="increase-quantity-button"
                 borderRadius="none"
                 onClick={incrementQuantity}
                 _hover={{ bg: "none", transform: "scale(1.2)" }}
