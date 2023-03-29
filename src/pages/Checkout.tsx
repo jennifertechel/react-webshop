@@ -39,6 +39,11 @@ function Checkout() {
   return (
     <>
       <ShoppingCart />
+      <Center>
+        <Heading as='h3' size='md' p={4} textTransform='uppercase'>
+          Dina uppgifter
+        </Heading>
+      </Center>
       <CustomerForm />
     </>
   );
