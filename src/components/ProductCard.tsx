@@ -81,7 +81,8 @@ function ProductCard({ product }: { product: Product }) {
                 onClick={() => {
                   handleAddToCart(product);
                   toast({
-                    position: "bottom",
+                    position: "bottom-right",
+                    duration: 2000,
                     render: () => (
                       <Box
                         data-cy='added-to-cart-toast'
