@@ -31,7 +31,7 @@ function Header() {
       >
         <Link to='/'>
           <Image
-            src='logo.svg'
+            src='/logo.svg'
             maxWidth={{ base: "120px", md: "150px" }}
             maxHeight='100%'
           />

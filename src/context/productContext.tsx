@@ -6,6 +6,7 @@ interface ProductContextProps {
   products: Product[];
   deleteProduct: (productId: string) => void;
   addNewProduct: (product: Product) => void;
+  editProduct: (productId: string, updatedProduct: Product) => void;
 }
 
 const ProductContext = createContext<ProductContextProps>(null as any);
@@ -25,9 +26,23 @@ export default function ProductProvider(props: PropsWithChildren) {
   const addNewProduct = (product: Product) => {
     setProductList([...productList, product]);
   };
+
+  const editProduct = (productId: string, updatedProduct: Product) => {
+    setProductList(
+      productList.map((product) =>
+        product.id === productId ? updatedProduct : product
+      )
+    );
+  };
+
   return (
     <ProductContext.Provider
-      value={{ products: productList, deleteProduct, addNewProduct }}
+      value={{
+        products: productList,
+        deleteProduct,
+        addNewProduct,
+        editProduct,
+      }}
     >
       {props.children}
     </ProductContext.Provider>

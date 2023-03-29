@@ -72,6 +72,9 @@ function CheckoutCard({ product }: { product: CartItem }) {
               <Text fontSize="sm">
                 Höjd: &nbsp;
                 {product.height}
+                <Text as="span" fontSize="sm">
+                  &nbsp;cm
+                </Text>
               </Text>
             </Box>
             <Flex
@@ -97,7 +100,6 @@ function CheckoutCard({ product }: { product: CartItem }) {
               <Button
                 bg="none"
                 borderRadius="none"
-                data-cy="increase-quantity-button"
                 onClick={incrementQuantity}
                 _hover={{ bg: "none", transform: "scale(1.2)" }}
               >

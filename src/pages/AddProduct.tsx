@@ -13,7 +13,9 @@ function AddProduct() {
           Lägg till ny produkt
         </Heading>
       </Center>
-      <ProductForm onSubmit={addNewProduct} />
+      <Center>
+        <ProductForm onSubmit={addNewProduct} />
+      </Center>
     </Box>
   );
 }
