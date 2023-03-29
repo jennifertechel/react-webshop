@@ -76,7 +76,7 @@ function AdminCard({ product }: { product: Product }) {
             alignItems='flex-end'
             direction={{ base: "row", md: "column" }}
           >
-            <Link to='/edit'>
+            <Link to={"product/" + product.id}>
               <Icon
                 bg='base.100'
                 color='black'
