@@ -5,12 +5,11 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Input,
-  Spacer,
-  Stack,
-  Text,
+  Input, Stack,
+  Text
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Product } from "../../data";
 
@@ -27,6 +26,7 @@ interface Props {
 }
 
 function ProductForm({ product, onSubmit }: Props) {
+  const navigate = useNavigate();
   const formik = useFormik<Product>({
     initialValues: product || {
       id: Date.now().toString(),
@@ -37,8 +37,11 @@ function ProductForm({ product, onSubmit }: Props) {
       height: "",
     },
     validationSchema: ProductSchema,
-    onSubmit,
-  });
+    onSubmit: (values) => {
+      onSubmit(values);
+      navigate("/admin");
+    }
+      });
 
   return (
     <form onSubmit={formik.handleSubmit} data-cy='product-form'>
@@ -163,7 +166,7 @@ function ProductForm({ product, onSubmit }: Props) {
 
               <Center>
                 <Box py={4}>
-                  <Button
+                  <Button 
                     variant='outline'
                     borderColor='yellow.400'
                     color='black'
