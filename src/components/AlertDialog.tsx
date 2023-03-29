@@ -31,14 +31,14 @@ function AlertDialogDelete({ productId }: Props) {
   return (
     <>
       <Icon
-        data-cy="admin-remove-product"
+        data-cy='admin-remove-product'
         onClick={onOpen}
-        bg="base.100"
-        color="black"
-        borderRadius="none"
-        boxSize={9}
+        bg='base.100'
+        color='black'
+        borderRadius='none'
+        boxSize={8}
         as={AiOutlineDelete}
-        _hover={{ bg: "orange.100" }}
+        _hover={{ bg: "none", transform: "scale(1.2)" }}
       />
 
       <AlertDialog
@@ -48,7 +48,7 @@ function AlertDialogDelete({ productId }: Props) {
       >
         <AlertDialogOverlay>
           <AlertDialogContent>
-            <AlertDialogHeader fontSize="lg" fontWeight="bold">
+            <AlertDialogHeader fontSize='lg' fontWeight='bold'>
               Är du säker på att du vill ta bort produkten?
             </AlertDialogHeader>
 
@@ -61,8 +61,8 @@ function AlertDialogDelete({ productId }: Props) {
                 Ångra
               </Button>
               <Button
-                data-cy="confirm-delete-button"
-                colorScheme="red"
+                data-cy='confirm-delete-button'
+                colorScheme='red'
                 onClick={handleDelete}
                 ml={3}
               >
