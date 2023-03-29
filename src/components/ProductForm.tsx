@@ -34,7 +34,7 @@ function ProductForm({ product, onSubmit }: Props) {
       description: "",
       price: "" as any,
       image: "",
-      height: "",
+      height: "" as any,
     },
     validationSchema: ProductSchema,
     onSubmit,

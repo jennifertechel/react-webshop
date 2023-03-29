@@ -35,7 +35,7 @@ function Footer() {
       <Center>
         <Image
           py={{ base: 4, md: 0 }}
-          src='logo.svg'
+          src='/logo.svg'
           maxWidth='150px'
           maxHeight='100%'
         />
