@@ -54,7 +54,12 @@ function ProductCard({ product }: { product: Product }) {
               >
                 {product.title}
               </Heading>
-              <Text margin='3px 10px 10px 10px'>Höjd: {product.height}</Text>
+              <Text margin='3px 10px 10px 10px'>
+                Höjd: {product.height}
+                <Text as='span' fontSize='sm'>
+                  &nbsp;cm
+                </Text>
+              </Text>
 
               <Text
                 data-cy='product-description'
