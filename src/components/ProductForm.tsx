@@ -20,7 +20,7 @@ const ProductSchema = Yup.object().shape({
   price: Yup.number()
     .positive("Ange ett pris över 0")
     .required("Vänligen ange ett pris"),
-  image: Yup.string().required("Vänligen lägg till en bild"),
+  image: Yup.string().url("Ogiltig url").required("Vänligen lägg till en bild"),
 });
 
 interface Props {
