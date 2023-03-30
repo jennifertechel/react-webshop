@@ -54,49 +54,89 @@ function CustomerForm() {
   return (
     <Form onSubmit={formik.handleSubmit} data-cy='customer-form'>
       <Center>
-        <Heading as='h3' size='md' p='4' textTransform='uppercase'>
-          Dina uppgifter
-        </Heading>
-      </Center>
-      <Center>
-        <Box p='28px' w='75rem' pt='5rem' pb='5rem' borderRadius='md'>
+        <Box w='80%' py={12}>
           <Flex
             flexDirection='column'
-            justifyContent='center'
             alignItems='center'
-            bg='brand.100'
-            borderRadius='md'
             border='1px'
             borderColor='yellow.400'
           >
-            <Stack m='30px' spacing={6}>
-              <FormControl>
-                <FormLabel>Namn:</FormLabel>
-                <Input
-                  data-cy='customer-name'
-                  bg='whiteAlpha.900'
-                  size='md'
-                  type='text'
-                  name='name'
-                  id='name'
-                  autoComplete='name'
-                  value={formik.values.name}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.name && formik.errors.name && (
-                  <Text data-cy='customer-name-error' color='red'>
-                    {formik.errors.name}
-                  </Text>
-                )}
-              </FormControl>
+            <Stack my={14} spacing={8}>
+              <Flex>
+                <FormControl mr={6}>
+                  <FormLabel fontSize='sm' mb={0} pl={2}>
+                    Namn
+                  </FormLabel>
+                  <Input
+                    data-cy='customer-name'
+                    bg='brand.100'
+                    size='md'
+                    borderRadius='none'
+                    focusBorderColor='blackAlpha.400'
+                    borderColor='blackAlpha.400'
+                    name='name'
+                    type='text'
+                    id='name'
+                    autoComplete='name'
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.name && formik.errors.name && (
+                    <Text
+                      pl={2}
+                      fontSize='sm'
+                      data-cy='customer-name-error'
+                      color='red'
+                    >
+                      {formik.errors.name}
+                    </Text>
+                  )}
+                </FormControl>
+
+                <FormControl>
+                  <FormLabel fontSize='sm' mb={0} pl={2}>
+                    Telefonnummer
+                  </FormLabel>
+                  <Input
+                    data-cy='customer-phone'
+                    bg='brand.100'
+                    size='md'
+                    borderRadius='none'
+                    focusBorderColor='blackAlpha.400'
+                    borderColor='blackAlpha.400'
+                    type='text'
+                    name='phone'
+                    id='phone'
+                    autoComplete='tel'
+                    value={formik.values.phone}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.phone && formik.errors.phone && (
+                    <Text
+                      pl={2}
+                      fontSize='sm'
+                      data-cy='customer-phone-error'
+                      color='red'
+                    >
+                      {formik.errors.phone}
+                    </Text>
+                  )}
+                </FormControl>
+              </Flex>
 
               <FormControl>
-                <FormLabel>Adress:</FormLabel>
+                <FormLabel fontSize='sm' mb={0} pl={2}>
+                  Adress
+                </FormLabel>
                 <Input
                   data-cy='customer-address'
-                  bg='whiteAlpha.900'
+                  bg='brand.100'
                   size='md'
+                  borderRadius='none'
+                  focusBorderColor='blackAlpha.400'
+                  borderColor='blackAlpha.400'
                   type='text'
                   name='address'
                   id='address'
@@ -106,60 +146,91 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.address && formik.errors.address && (
-                  <Text data-cy='customer-address-error' color='red'>
+                  <Text
+                    pl={2}
+                    fontSize='sm'
+                    data-cy='customer-address-error'
+                    color='red'
+                  >
                     {formik.errors.address}
                   </Text>
                 )}
               </FormControl>
+              <Flex>
+                <FormControl mr={6}>
+                  <FormLabel fontSize='sm' mb={0} pl={2}>
+                    Postnummer
+                  </FormLabel>
+                  <Input
+                    data-cy='customer-zipcode'
+                    bg='brand.100'
+                    size='md'
+                    borderRadius='none'
+                    focusBorderColor='blackAlpha.400'
+                    borderColor='blackAlpha.400'
+                    type='text'
+                    name='zipcode'
+                    id='zipcode'
+                    autoComplete='postal-code'
+                    value={formik.values.zipcode}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.zipcode && formik.errors.zipcode && (
+                    <Text
+                      pl={2}
+                      fontSize='sm'
+                      data-cy='customer-zipcode-error'
+                      color='red'
+                    >
+                      {formik.errors.zipcode}
+                    </Text>
+                  )}
+                </FormControl>
+
+                <FormControl>
+                  <FormLabel fontSize='sm' mb={0} pl={2}>
+                    Postort
+                  </FormLabel>
+                  <Input
+                    data-cy='customer-city'
+                    bg='brand.100'
+                    size='md'
+                    borderRadius='none'
+                    focusBorderColor='blackAlpha.400'
+                    borderColor='blackAlpha.400'
+                    type='text'
+                    name='city'
+                    id='city'
+                    autoComplete='address-level2'
+                    value={formik.values.city}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.city && formik.errors.city && (
+                    <Text
+                      pl={2}
+                      fontSize='sm'
+                      data-cy='customer-city-error'
+                      color='red'
+                    >
+                      {formik.errors.city}
+                    </Text>
+                  )}
+                </FormControl>
+              </Flex>
 
               <FormControl>
-                <FormLabel>Postnummer:</FormLabel>
-                <Input
-                  data-cy='customer-zipcode'
-                  bg='whiteAlpha.900'
-                  size='md'
-                  type='text'
-                  name='zipcode'
-                  id='zipcode'
-                  autoComplete='postal-code'
-                  value={formik.values.zipcode}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.zipcode && formik.errors.zipcode && (
-                  <Text data-cy='customer-zipcode-error' color='red'>
-                    {formik.errors.zipcode}
-                  </Text>
-                )}
-              </FormControl>
-
-              <FormControl>
-                <FormLabel>Stad:</FormLabel>
-                <Input
-                  data-cy='customer-city'
-                  bg='whiteAlpha.900'
-                  size='md'
-                  type='text'
-                  name='city'
-                  id='city'
-                  autoComplete='address-level2'
-                  value={formik.values.city}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.city && formik.errors.city && (
-                  <Text data-cy='customer-city-error' color='red'>
-                    {formik.errors.city}
-                  </Text>
-                )}
-              </FormControl>
-
-              <FormControl>
-                <FormLabel>Email:</FormLabel>
+                <FormLabel fontSize='sm' mb={0} pl={2}>
+                  Mejladdress
+                </FormLabel>
                 <Input
                   data-cy='customer-email'
-                  bg='whiteAlpha.900'
+                  bg='brand.100'
                   size='md'
+                  borderRadius='none'
+                  focusBorderColor='blackAlpha.400'
+                  borderColor='blackAlpha.400'
                   type='text'
                   name='email'
                   id='email'
@@ -169,39 +240,32 @@ function CustomerForm() {
                   onBlur={formik.handleBlur}
                 />
                 {formik.touched.email && formik.errors.email && (
-                  <Text data-cy='customer-email-error' color='red'>
+                  <Text
+                    pl={2}
+                    fontSize='sm'
+                    data-cy='customer-email-error'
+                    color='red'
+                  >
                     {formik.errors.email}
                   </Text>
                 )}
               </FormControl>
 
-              <FormControl>
-                <FormLabel>Telefonnummer:</FormLabel>
-                <Input
-                  data-cy='customer-phone'
-                  bg='whiteAlpha.900'
-                  size='md'
-                  type='text'
-                  name='phone'
-                  id='phone'
-                  autoComplete='tel'
-                  value={formik.values.phone}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-                {formik.touched.phone && formik.errors.phone && (
-                  <Text data-cy='customer-phone-error' color='red'>
-                    {formik.errors.phone}
-                  </Text>
-                )}
-                <Center>
-                  <Box pt='1.5rem'>
-                    <Button colorScheme='yellow' size='md' type='submit'>
-                      Slutför beställning
-                    </Button>
-                  </Box>
-                </Center>
-              </FormControl>
+              <Center>
+                <Button
+                  type='submit'
+                  bg='base.100'
+                  borderColor='yellow.400'
+                  borderRadius='none'
+                  borderWidth='1.5px'
+                  size='sm'
+                  w={52}
+                  h={12}
+                  _hover={{ bg: "orange.100" }}
+                >
+                  Slutför beställning
+                </Button>
+              </Center>
             </Stack>
           </Flex>
         </Box>

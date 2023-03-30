@@ -18,21 +18,20 @@ function Home() {
         alignItems={{ base: "center", md: "flex-start" }}
       >
         <Box pl={{ base: 0, md: "18rem" }}>
-          <Text>Handmade ceramic vases</Text>
-          <Heading>
-            Some fun slogan
-            <br /> and stay groovy
+          <Text fontSize='lg'>Handmade ceramic vases</Text>
+          <Heading fontSize='6xl' fontFamily='losta-masta'>
+            Get groovy with
+            <br /> our spring collection
           </Heading>
         </Box>
       </Flex>
 
-      <Box pt={10}>
-        <Center>
-          <Heading fontSize='2xl' fontWeight='normal'>
-            NYHETER
-          </Heading>
-        </Center>
-      </Box>
+      <Center pt={10}>
+        <Heading fontSize='2xl' fontWeight='normal'>
+          NYHETER
+        </Heading>
+      </Center>
+
       <Center>
         <Grid
           templateColumns={[
