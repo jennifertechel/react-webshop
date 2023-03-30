@@ -6,11 +6,12 @@ import {
   Flex,
   Icon,
   Image,
+  Input,
   Spacer,
   Text,
 } from "@chakra-ui/react";
 import { AiOutlineDelete } from "react-icons/ai";
-import { CartItem, Product } from "../../data";
+import { CartItem } from "../../data";
 import { useCart } from "../context/cartContext";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
@@ -21,9 +22,9 @@ function CheckoutCard({ product }: { product: CartItem }) {
   );
 
   const { removeFromCart, updateCartItemQuantity } = useCart();
-  const handleRemoveFromCart = (item: Product) => {
-    removeFromCart(item.id);
-    localStorage.removeItem("cartQuantity-" + item.id);
+  const handleRemoveFromCart = (id: string) => {
+    removeFromCart(id);
+    localStorage.removeItem("cartQuantity-" + id);
   };
   const incrementQuantity = () => {
     const newQuantity = quantity + 1;
@@ -36,6 +37,8 @@ function CheckoutCard({ product }: { product: CartItem }) {
       const newQuantity = quantity - 1;
       setQuantity(newQuantity);
       updateCartItemQuantity(product.id, newQuantity);
+    } else {
+      handleRemoveFromCart(product.id);
     }
   };
 
@@ -95,9 +98,7 @@ function CheckoutCard({ product }: { product: CartItem }) {
                 -
               </Button>
 
-              <Text px={3} data-cy="product-quantity">
-                {product.quantity}
-              </Text>
+              <Input data-cy="product-quantity" value={quantity} size="sm" />
 
               <Button
                 bg="none"
@@ -115,12 +116,12 @@ function CheckoutCard({ product }: { product: CartItem }) {
             <Button
               bg="none"
               _hover={{ bg: "none", transform: "scale(1.2)" }}
-              onClick={() => handleRemoveFromCart(product)}
+              onClick={() => handleRemoveFromCart(product.id)}
             >
               <Icon boxSize={6} as={AiOutlineDelete} />
             </Button>
             <Text data-cy="product-price">
-              {product.price}
+              {product.price * product.quantity}
               <Text as="span" fontSize="xs">
                 &nbsp;SEK
               </Text>
