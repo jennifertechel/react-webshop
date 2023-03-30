@@ -1,6 +1,6 @@
 import {
-  Card,
   Box,
+  Card,
   Flex,
   Heading,
   Icon,
@@ -61,9 +61,7 @@ function AdminCard({ product }: { product: Product }) {
                 <Text>Höjd:&nbsp;</Text>
                 <Text mb={4}>
                   {product.height}
-                  <Text as='span' fontSize='sm'>
-                    &nbsp;cm
-                  </Text>
+                  <Text as='span' fontSize='sm'></Text>
                 </Text>
               </Flex>
               <Flex>
