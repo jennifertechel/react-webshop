@@ -98,7 +98,13 @@ function CheckoutCard({ product }: { product: CartItem }) {
                 -
               </Button>
 
-              <Input data-cy="product-quantity" value={quantity} size="sm" />
+              <Input
+                border="none"
+                data-cy="product-quantity"
+                value={quantity}
+                size="sm"
+                w="2rem"
+              />
 
               <Button
                 bg="none"
