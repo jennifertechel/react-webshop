@@ -7,7 +7,7 @@ import {
   Image,
   Link,
   Spacer,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
@@ -17,7 +17,7 @@ function Footer() {
       as='footer'
       borderTop='1px'
       borderColor='blackAlpha.200'
-      width='100vw'
+      width='100%'
       py={6}
       px={20}
       direction={{ base: "column", md: "row" }}
