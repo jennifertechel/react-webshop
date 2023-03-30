@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, PropsWithChildren } from "react";
-import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { createContext, PropsWithChildren, useContext } from "react";
 import type { CartItem, Product } from "../../data";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 interface CartContextProps {
   cart: CartItem[];
