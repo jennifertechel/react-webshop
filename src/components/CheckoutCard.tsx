@@ -94,9 +94,11 @@ function CheckoutCard({ product }: { product: CartItem }) {
               >
                 -
               </Button>
+
               <Text px={3} data-cy="product-quantity">
                 {product.quantity}
               </Text>
+
               <Button
                 bg="none"
                 data-cy="increase-quantity-button"
