@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CustomerForm from "../components/CustomerForm";
 import ShoppingCart from "../components/ShoppingCart";

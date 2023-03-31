@@ -7,7 +7,7 @@ import {
   Image,
   Link,
   Spacer,
-  Text
+  Text,
 } from "@chakra-ui/react";
 import { SlSocialFacebook, SlSocialInstagram } from "react-icons/sl";
 
@@ -28,8 +28,8 @@ function Footer() {
           By Groove
         </Heading>
         <Link>Köpvillkor</Link>
-        <Link>Någonting</Link>
-        <Link>Något annat</Link>
+        <Link>Retur och reklamation</Link>
+        <Link>FAQ</Link>
       </Flex>
       <Spacer />
       <Center>

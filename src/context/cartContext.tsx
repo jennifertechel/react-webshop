@@ -30,11 +30,10 @@ export default function CartProvider(props: PropsWithChildren) {
       updatedCart[itemIndex].quantity++;
       setCart(updatedCart);
     }
-    console.log("Item added:", item);
   };
 
   const removeFromCart = (itemId: string) => {
-    // Filter out the item with the given ID from the cart ?
+    // Filtrera bort produkt baserat på id
     const updatedCart = cart.filter((cartItem) => cartItem.id !== itemId);
     setCart(updatedCart);
   };

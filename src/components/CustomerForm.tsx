@@ -5,7 +5,6 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
   Input,
   Stack,
   Text,
@@ -22,7 +21,7 @@ const CustomerSchema = Yup.object().shape({
   address: Yup.string()
     .min(4)
     .required("Vänligen ange din fullständiga adress"),
-  zipcode: Yup.string().min(5).max(5).required("Vänligen ange ett postnummer"),
+  zipcode: Yup.string().min(5).max(6).required("Vänligen ange ett postnummer"),
   city: Yup.string().min(2).required("Vänligen ange en stad"),
   email: Yup.string()
     .email("Vänligen ange en giltig mejladress")
